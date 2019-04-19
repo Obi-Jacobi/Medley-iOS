@@ -16,15 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let nav = UINavigationController()
-        nav.isNavigationBarHidden = true
+//        let nav = UINavigationController()
+//        nav.isNavigationBarHidden = true
 
-        coordinator = MainCoordinator(navigationController: nav)
-        coordinator?.start()
+//        coordinator = MainCoordinator(navigationController: nav)
+        coordinator = MainCoordinator()
+        //coordinator?.start()
 
         // create a basic UIWindow and activate it
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = nav
+        window?.rootViewController = coordinator?.navigationController
         window?.makeKeyAndVisible()
 
         return true

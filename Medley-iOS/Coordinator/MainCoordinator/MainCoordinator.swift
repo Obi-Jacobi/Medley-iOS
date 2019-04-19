@@ -13,12 +13,15 @@ class MainCoordinator: Coordinator {
 
     var navigationController: UINavigationController
 
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init() {
+        let vc = ViewController.instantiate(from: "Main")
+        self.navigationController = UINavigationController(rootViewController: vc)
     }
 
     func start() {
-        let vc = ViewController.instantiate(from: "Main")
-        navigationController.pushViewController(vc, animated: false)
+//        let vc = ViewController.instantiate(from: "Main")
+//        //navigationController.pushViewController(vc, animated: false)
+//
+//        navigationController.
     }
 }
