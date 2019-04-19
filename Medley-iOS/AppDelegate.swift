@@ -12,10 +12,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var coordinator: Coordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        let nav = UINavigationController()
+//        nav.isNavigationBarHidden = true
+
+//        coordinator = MainCoordinator(navigationController: nav)
+        coordinator = MainCoordinator()
+        //coordinator?.start()
+
+        // create a basic UIWindow and activate it
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = coordinator?.navigationController
+        window?.makeKeyAndVisible()
+
         return true
     }
 
