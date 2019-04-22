@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, Storyboarded, CoordinatedView {
+class LoginViewController: UIViewController, Storyboarded {
 
     var coordinator: LoginCoordinatable!
 

@@ -10,13 +10,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SignupViewController: UIViewController, Storyboarded, CoordinatedView {
+class SignupViewController: UIViewController, SignupView {
     @IBOutlet private weak var nameTextField: UITextField!
 
-    let disposeBag = DisposeBag()
-
-    var coordinator: SignupCoordinatable!
     var viewModel: SignupViewModel!
+
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()

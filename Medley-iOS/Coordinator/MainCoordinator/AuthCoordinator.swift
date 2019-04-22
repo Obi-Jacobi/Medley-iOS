@@ -73,15 +73,13 @@ class SignupCoordinator: SignupCoordinatable {
     }
 
     func start() {
-        let vc = SignupViewController.instantiate(from: "Main")
-        vc.coordinator = self
-
         let viewModel = resolver.resolve(SignupViewModel.self, argument: { () -> Void in
             self.login()
         })!
 
-        vc.viewModel = viewModel
-        navigationController.setViewControllers([vc], animated: false)
+        let view = resolver.resolve(SignupView.self, argument: viewModel)!
+
+        navigationController.setViewControllers([view], animated: false)
     }
 
     func login() {

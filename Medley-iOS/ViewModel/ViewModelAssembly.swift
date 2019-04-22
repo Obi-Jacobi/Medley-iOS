@@ -11,7 +11,8 @@ import Swinject
 class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
         container.register(SignupViewModel.self) { (r: Resolver, goToLogin: @escaping () -> Void) in
-            return SignupViewModel(apiService: APIClient(), goToLogin: goToLogin)
+            let apiService = r.resolve(ApiService.self)!
+            return SignupViewModel(apiService: apiService, goToLogin: goToLogin)
         }.inObjectScope(.transient)
         
     }

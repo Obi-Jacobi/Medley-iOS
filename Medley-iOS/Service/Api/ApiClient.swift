@@ -55,7 +55,7 @@ struct APIResponse<Body> {
     let body: Body
 }
 
-struct APIClient: ApiService {
+struct ApiClient: ApiService {
 
     private let session = URLSession.shared
     private let baseURL = URL(string: "http://localhost:8080")

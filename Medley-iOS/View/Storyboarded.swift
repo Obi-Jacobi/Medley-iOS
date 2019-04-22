@@ -12,12 +12,6 @@ protocol Storyboarded {
     static func instantiate(from storyboard: String) -> Self
 }
 
-protocol CoordinatedView {
-    associatedtype Coordinator
-
-    var coordinator: Coordinator! { get set }
-}
-
 extension Storyboarded where Self: UIViewController {
     static func instantiate(from storyboard: String) -> Self {
         // this pulls out "MyApp.MyViewController"

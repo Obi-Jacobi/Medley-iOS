@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoViewController: UIViewController, Storyboarded, CoordinatedView {
+class TodoViewController: UIViewController, Storyboarded {
 
     var coordinator: TodoCoordinatable!
 
