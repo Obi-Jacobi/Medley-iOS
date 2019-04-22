@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol Coordinator {
-    var childCoordinators: [Coordinator] { get set }
+// https://www.hackingwithswift.com/articles/175/advanced-coordinator-pattern-tutorial-ios
+
+protocol Coordinator: AnyObject {
     var navigationController: UINavigationController { get set }
 
     func start()

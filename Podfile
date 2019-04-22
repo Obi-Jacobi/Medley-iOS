@@ -3,14 +3,19 @@ platform :ios, '12.2'
 
 inhibit_all_warnings!
 
+# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 use_frameworks!
 
 workspace 'Medley-iOS'
 
 target 'Medley-iOS' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-
   # Pods for Medley-iOS
+
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa', '~> 4.0'
+
+  pod 'Swinject'
+
 end
 
 target 'Medley-iOSTests' do

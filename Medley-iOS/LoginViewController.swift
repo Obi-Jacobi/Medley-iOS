@@ -8,13 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController, Storyboarded {
+class LoginViewController: UIViewController, Storyboarded {
+
+    var coordinator: LoginCoordinatable!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func signupButton(_ sender: UIButton) {
+        coordinator.signup()
+    }
+    
 }
 

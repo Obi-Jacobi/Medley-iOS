@@ -7,21 +7,26 @@
 //
 
 import UIKit
+import Swinject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var coordinator: Coordinator?
+    var coordinator: MainCoordinatable?
+
+    let assembler = Assembler([
+        CoordinatorAssembly(),
+        ServiceAssembly(),
+        ViewModelAssembly(),
+        ViewAssembly()
+    ])
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        let nav = UINavigationController()
-//        nav.isNavigationBarHidden = true
-
-//        coordinator = MainCoordinator(navigationController: nav)
-        coordinator = MainCoordinator()
-        //coordinator?.start()
+        
+        coordinator = assembler.resolver.resolve(MainCoordinatable.self)
+        coordinator?.start()
 
         // create a basic UIWindow and activate it
         window = UIWindow(frame: UIScreen.main.bounds)
