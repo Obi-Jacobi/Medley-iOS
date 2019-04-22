@@ -37,10 +37,16 @@ class APIRequest {
     var headers: [HTTPHeader]?
     var body: Data?
 
-    init<Body: Encodable>(method: HTTPMethod, path: String, body: Body) throws {
+    init<Body: Encodable>(method: HTTPMethod, path: String, body: Body? = nil) throws {
         self.method = method
         self.path = path
+
+        guard let body = body else {
+            return
+        }
+
         self.body = try JSONEncoder().encode(body)
+        self.headers = [HTTPHeader(field: "Content-Type", value: "application/json")]
     }
 }
 
@@ -51,20 +57,10 @@ struct APIResponse<Body> {
 
 struct APIClient: ApiService {
 
-    //typealias APIClientCompletion<Type> = (Result<APIResponse<Type>, APIError>) -> Void
-
     private let session = URLSession.shared
     private let baseURL = URL(string: "http://localhost:8080")
 
-    private struct SignupRequest: Codable {
-        let name: String
-        let email: String
-        let password: String
-        let verifyPassword: String
-    }
-
-    func signup(_ completion: @escaping APIClientCompletion<SignupResponse>) throws {
-        let signupRequest = SignupRequest(name: "Jacob Wilson", email: "jwilson9553@gmail.com", password: "Steelers", verifyPassword: "NotSteelers")
+    func signup(request signupRequest: SignupRequest, _ completion: @escaping APIServiceCompletion<SignupResponse>) throws {
         let apiRequest = try APIRequest(method: .post, path: "users", body: signupRequest)
         request(apiRequest, decodeTo: SignupResponse.self, completion)
     }
@@ -81,7 +77,7 @@ struct APIClient: ApiService {
 
     }
 
-    private func request<Type: Codable>(_ request: APIRequest, decodeTo: Type.Type, _ completion: @escaping APIClientCompletion<Type>) {
+    private func request<Type: Codable>(_ request: APIRequest, decodeTo: Type.Type, _ completion: @escaping APIServiceCompletion<Type>) {
 
         var urlComponents = URLComponents()
         urlComponents.scheme = baseURL?.scheme
@@ -99,9 +95,11 @@ struct APIClient: ApiService {
         urlRequest.httpMethod = request.method.rawValue
         urlRequest.httpBody = request.body
 
-        request.headers?.forEach { urlRequest.addValue($0.value, forHTTPHeaderField: $0.field) }
+        request.headers?.forEach {
+            urlRequest.addValue($0.value, forHTTPHeaderField: $0.field)
+        }
 
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(.failure(.requestFailed))
                 return

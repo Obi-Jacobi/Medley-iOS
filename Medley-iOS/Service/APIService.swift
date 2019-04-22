@@ -8,6 +8,13 @@
 
 import Foundation
 
+struct SignupRequest: Encodable {
+    var name: String
+    var email: String
+    var password: String
+    var verifyPassword: String
+}
+
 struct SignupResponse: Codable {
     let id: Int
     let name: String
@@ -15,9 +22,9 @@ struct SignupResponse: Codable {
 }
 
 protocol ApiService {
-    typealias APIClientCompletion<Type> = (Result<APIResponse<Type>, APIError>) -> Void
+    typealias APIServiceCompletion<Type> = (Result<APIResponse<Type>, APIError>) -> Void
 
-    func signup(_ completion: @escaping APIClientCompletion<SignupResponse>) throws
+    func signup(request signupRequest: SignupRequest, _ completion: @escaping APIServiceCompletion<SignupResponse>) throws
     func login()
     func getAllTodos()
     func makeTodo()

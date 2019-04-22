@@ -7,18 +7,33 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SignupViewController: UIViewController, Storyboarded, CoordinatedView {
+    @IBOutlet private weak var nameTextField: UITextField!
+
+    let disposeBag = DisposeBag()
 
     var coordinator: SignupCoordinatable!
+    var viewModel: SignupViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        viewModel.name
+            .bind(to: nameTextField.rx.text)
+            .disposed(by: disposeBag)
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        coordinator.login()
+        //coordinator.login()
+        viewModel.goBackToLogin()
+    }
+
+    @IBAction func signupButton(_ sender: Any) {
+        viewModel.update(name: nameTextField.text ?? "")
+
+        viewModel.signup()
     }
 }

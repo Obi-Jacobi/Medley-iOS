@@ -67,6 +67,7 @@ class SignupCoordinator: SignupCoordinatable {
     func start() {
         let vc = SignupViewController.instantiate(from: "Main")
         vc.coordinator = self
+        vc.viewModel = SignupViewModel(coordinator: self, apiService: APIClient())
         navigationController.setViewControllers([vc], animated: false)
     }
 
