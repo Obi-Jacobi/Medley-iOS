@@ -144,10 +144,10 @@
 		1A628A03226A3CCB00DCA73B /* Medley-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				1A6FC729226E5A0400DF1F25 /* View */,
-				1A6FC723226E248A00DF1F25 /* ViewModel */,
-				1A6FC233226E1E0A00DF1F25 /* Service */,
 				1A628A32226A413800DCA73B /* Coordinator */,
+				1A6FC233226E1E0A00DF1F25 /* Service */,
+				1A6FC723226E248A00DF1F25 /* ViewModel */,
+				1A6FC729226E5A0400DF1F25 /* View */,
 				1A628A04226A3CCB00DCA73B /* AppDelegate.swift */,
 				1A628A06226A3CCB00DCA73B /* LoginViewController.swift */,
 				1A6FC231226E19EB00DF1F25 /* TodoViewController.swift */,

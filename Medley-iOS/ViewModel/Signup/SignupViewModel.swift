@@ -10,7 +10,16 @@ import RxSwift
 
 class SignupViewModel {
     let name: Observable<String>
-    private let nameSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+    let nameSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+
+    let email: Observable<String>
+    private let emailSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+
+    let password: Observable<String>
+    private let passwordSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+
+    let verifyPassword: Observable<String>
+    private let verifyPasswordSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
 
     private let apiService: ApiService
     private let goToLogin: () -> Void
@@ -24,6 +33,9 @@ class SignupViewModel {
         self.goToLogin = goToLogin
 
         self.name = nameSubject.asObservable()
+        self.email = emailSubject.asObservable()
+        self.password = passwordSubject.asObservable()
+        self.verifyPassword = verifyPasswordSubject.asObservable()
 
         name.subscribe(onNext: {
             print("New Name Value: \($0)")
@@ -31,13 +43,24 @@ class SignupViewModel {
         .disposed(by: disposeBag)
     }
 
-    func update(name: String) {
+    func update(name: String,
+                email: String,
+                password: String,
+                verifyPassword: String) {
+
         nameSubject.onNext(name)
+        emailSubject.onNext(email)
+        passwordSubject.onNext(password)
+        verifyPasswordSubject.onNext(verifyPassword)
     }
 
     func signup() {
         let nameValue = (try? nameSubject.value()) ?? ""
-        let signupRequest = SignupRequest(name: nameValue, email: "jwilson9553@gmail.com", password: "password", verifyPassword: "password")
+        let emailValue = (try? emailSubject.value()) ?? ""
+        let passwordValue = (try? passwordSubject.value()) ?? ""
+        let verifyPasswordValue = (try? verifyPasswordSubject.value()) ?? ""
+
+        let signupRequest = SignupRequest(name: nameValue, email: emailValue, password: passwordValue, verifyPassword: verifyPasswordValue)
 
         try? apiService.signup(request: signupRequest) { result in
             switch result {
