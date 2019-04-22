@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A628A05226A3CCB00DCA73B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A04226A3CCB00DCA73B /* AppDelegate.swift */; };
-		1A628A07226A3CCB00DCA73B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A06226A3CCB00DCA73B /* ViewController.swift */; };
+		1A628A07226A3CCB00DCA73B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A06226A3CCB00DCA73B /* LoginViewController.swift */; };
 		1A628A0A226A3CCB00DCA73B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A628A08226A3CCB00DCA73B /* Main.storyboard */; };
 		1A628A0C226A3CCD00DCA73B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A628A0B226A3CCD00DCA73B /* Assets.xcassets */; };
 		1A628A0F226A3CCD00DCA73B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A628A0D226A3CCD00DCA73B /* LaunchScreen.storyboard */; };
@@ -17,6 +17,10 @@
 		1A628A34226A414B00DCA73B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A33226A414B00DCA73B /* Coordinator.swift */; };
 		1A628A36226A41C200DCA73B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A35226A41C200DCA73B /* Storyboarded.swift */; };
 		1A628A39226A435000DCA73B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A38226A435000DCA73B /* MainCoordinator.swift */; };
+		1A628A3B226A5BEF00DCA73B /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A3A226A5BEF00DCA73B /* AuthCoordinator.swift */; };
+		1A628A3D226A611900DCA73B /* TodoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A3C226A611900DCA73B /* TodoCoordinator.swift */; };
+		1A628CDE226A6C0D00DCA73B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628CDD226A6C0D00DCA73B /* SignupViewController.swift */; };
+		1A6FC232226E19EB00DF1F25 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC231226E19EB00DF1F25 /* TodoViewController.swift */; };
 		5B9486F720D64EB7A89EEBB6 /* Pods_Medley_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AB4ACCA14E91FE6A9ED6BD /* Pods_Medley_iOSTests.framework */; };
 		8EBED1442F51A49BE9A21D3A /* Pods_Medley_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */; };
 		FC97EB7EF8A917B30167F597 /* Pods_Medley_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905C393316ACF5ACF4D5A80 /* Pods_Medley_iOSUITests.framework */; };
@@ -42,7 +46,7 @@
 /* Begin PBXFileReference section */
 		1A628A01226A3CCB00DCA73B /* Medley-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medley-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A628A04226A3CCB00DCA73B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A628A06226A3CCB00DCA73B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1A628A06226A3CCB00DCA73B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1A628A09226A3CCB00DCA73B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A628A0B226A3CCD00DCA73B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A628A0E226A3CCD00DCA73B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +60,10 @@
 		1A628A33226A414B00DCA73B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1A628A35226A41C200DCA73B /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		1A628A38226A435000DCA73B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		1A628A3A226A5BEF00DCA73B /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		1A628A3C226A611900DCA73B /* TodoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCoordinator.swift; sourceTree = "<group>"; };
+		1A628CDD226A6C0D00DCA73B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		1A6FC231226E19EB00DF1F25 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		3CA047751E07A6C8A51D0701 /* Pods-Medley-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Medley-iOSUITests/Pods-Medley-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B58EAE18C449A20D41AADDF /* Pods-Medley-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOS.release.xcconfig"; path = "Target Support Files/Pods-Medley-iOS/Pods-Medley-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medley_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,7 +130,9 @@
 			children = (
 				1A628A32226A413800DCA73B /* Coordinator */,
 				1A628A04226A3CCB00DCA73B /* AppDelegate.swift */,
-				1A628A06226A3CCB00DCA73B /* ViewController.swift */,
+				1A628A06226A3CCB00DCA73B /* LoginViewController.swift */,
+				1A628CDD226A6C0D00DCA73B /* SignupViewController.swift */,
+				1A6FC231226E19EB00DF1F25 /* TodoViewController.swift */,
 				1A628A08226A3CCB00DCA73B /* Main.storyboard */,
 				1A628A0B226A3CCD00DCA73B /* Assets.xcassets */,
 				1A628A0D226A3CCD00DCA73B /* LaunchScreen.storyboard */,
@@ -163,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				1A628A38226A435000DCA73B /* MainCoordinator.swift */,
+				1A628A3A226A5BEF00DCA73B /* AuthCoordinator.swift */,
+				1A628A3C226A611900DCA73B /* TodoCoordinator.swift */,
 			);
 			path = MainCoordinator;
 			sourceTree = "<group>";
@@ -187,7 +199,6 @@
 				3CA047751E07A6C8A51D0701 /* Pods-Medley-iOSUITests.debug.xcconfig */,
 				AD51886D1416D1520C0B9403 /* Pods-Medley-iOSUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -394,10 +405,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A628A07226A3CCB00DCA73B /* ViewController.swift in Sources */,
+				1A628A3B226A5BEF00DCA73B /* AuthCoordinator.swift in Sources */,
+				1A6FC232226E19EB00DF1F25 /* TodoViewController.swift in Sources */,
+				1A628A07226A3CCB00DCA73B /* LoginViewController.swift in Sources */,
+				1A628CDE226A6C0D00DCA73B /* SignupViewController.swift in Sources */,
 				1A628A05226A3CCB00DCA73B /* AppDelegate.swift in Sources */,
 				1A628A34226A414B00DCA73B /* Coordinator.swift in Sources */,
 				1A628A39226A435000DCA73B /* MainCoordinator.swift in Sources */,
+				1A628A3D226A611900DCA73B /* TodoCoordinator.swift in Sources */,
 				1A628A36226A41C200DCA73B /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

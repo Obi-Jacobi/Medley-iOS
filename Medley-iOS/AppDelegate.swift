@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var coordinator: Coordinator?
+    var coordinator: MainCoordinatable?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //        coordinator = MainCoordinator(navigationController: nav)
         coordinator = MainCoordinator()
-        //coordinator?.start()
+        coordinator?.start()
 
         // create a basic UIWindow and activate it
         window = UIWindow(frame: UIScreen.main.bounds)

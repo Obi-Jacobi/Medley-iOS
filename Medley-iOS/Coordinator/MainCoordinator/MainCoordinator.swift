@@ -8,20 +8,22 @@
 
 import UIKit
 
-class MainCoordinator: Coordinator {
-    var childCoordinators = [Coordinator]()
+protocol MainCoordinatable: Coordinator {
+    var authCoordinator: AuthCoordinator { get }
+}
+
+class MainCoordinator: MainCoordinatable {
 
     var navigationController: UINavigationController
+    var authCoordinator: AuthCoordinator
 
     init() {
-        let vc = ViewController.instantiate(from: "Main")
-        self.navigationController = UINavigationController(rootViewController: vc)
+        navigationController = UINavigationController()
+
+        authCoordinator = AuthCoordinator(navigationController: navigationController)
     }
 
     func start() {
-//        let vc = ViewController.instantiate(from: "Main")
-//        //navigationController.pushViewController(vc, animated: false)
-//
-//        navigationController.
+        authCoordinator.start()
     }
 }

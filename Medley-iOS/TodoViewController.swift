@@ -1,20 +1,20 @@
 //
-//  ViewController.swift
+//  TodoViewController.swift
 //  Medley-iOS
 //
-//  Created by Jacob Wilson on 4/19/19.
+//  Created by Jacob Wilson on 4/22/19.
 //  Copyright © 2019 Jacob Wilson. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, Storyboarded {
+class TodoViewController: UIViewController, Storyboarded, CoordinatedView {
+
+    var coordinator: TodoCoordinatable!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
 }
-
