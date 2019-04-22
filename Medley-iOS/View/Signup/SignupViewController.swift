@@ -23,7 +23,7 @@ class SignupViewController: UIViewController, SignupView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        setupBindings()
     }
 
     private func setupBindings() {

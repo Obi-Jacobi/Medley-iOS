@@ -37,13 +37,19 @@ class APIRequest {
     var headers: [HTTPHeader]?
     var body: Data?
 
-    init<Body: Encodable>(method: HTTPMethod, path: String, body: Body? = nil) throws {
+    init(method: HTTPMethod, path: String, loginRequest: LoginRequest) throws {
         self.method = method
         self.path = path
 
-        guard let body = body else {
-            return
-        }
+        let authString = "\(loginRequest.email):\(loginRequest.password)"
+        let authData = authString.data(using: .utf8)!
+        let authValue = "Basic \(authData.base64EncodedString())"
+        self.headers = [HTTPHeader(field: "Authorization", value: authValue)]
+    }
+
+    init<Body: Encodable>(method: HTTPMethod, path: String, body: Body) throws {
+        self.method = method
+        self.path = path
 
         self.body = try JSONEncoder().encode(body)
         self.headers = [HTTPHeader(field: "Content-Type", value: "application/json")]
@@ -65,8 +71,9 @@ struct ApiClient: ApiService {
         request(apiRequest, decodeTo: SignupResponse.self, completion)
     }
 
-    func login() {
-
+    func login(request loginRequest: LoginRequest, _ completion: @escaping APIServiceCompletion<LoginResponse>) throws {
+        let apiRequest = try APIRequest(method: HTTPMethod.post, path: "login", loginRequest: loginRequest)
+        request(apiRequest, decodeTo: LoginResponse.self, completion)
     }
 
     func getAllTodos() {

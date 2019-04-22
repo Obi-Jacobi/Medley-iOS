@@ -16,6 +16,13 @@ class ViewAssembly: Assembly {
 
             return vc
         }.inObjectScope(.transient)
+
+        container.register(LoginView.self) { (r: Resolver, viewModel: LoginViewModel) in
+            let vc = LoginViewController.instantiate(from: "Main")
+            vc.viewModel = viewModel
+
+            return vc
+        }.inObjectScope(.transient)
         
     }
 }

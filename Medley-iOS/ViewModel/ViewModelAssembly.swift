@@ -14,6 +14,11 @@ class ViewModelAssembly: Assembly {
             let apiService = r.resolve(ApiService.self)!
             return SignupViewModel(apiService: apiService, goToLogin: goToLogin)
         }.inObjectScope(.transient)
+
+        container.register(LoginViewModel.self) { (r: Resolver, goToSignup: @escaping () -> Void) in
+            let apiService = r.resolve(ApiService.self)!
+            return LoginViewModel(apiService: apiService, goToSignup: goToSignup)
+        }.inObjectScope(.transient)
         
     }
 }

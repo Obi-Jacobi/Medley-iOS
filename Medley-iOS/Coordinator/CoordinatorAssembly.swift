@@ -29,7 +29,7 @@ class CoordinatorAssembly: Assembly {
         }.inObjectScope(.container)
 
         container.register(LoginCoordinatable.self) { (r: Resolver, navigationController: UINavigationController) in
-            return LoginCoordinator(navigationController: navigationController)
+            return LoginCoordinator(navigationController: navigationController, resolver: r)
         }.inObjectScope(.container)
     }
 }

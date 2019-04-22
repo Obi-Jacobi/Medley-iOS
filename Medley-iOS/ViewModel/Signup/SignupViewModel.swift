@@ -10,7 +10,7 @@ import RxSwift
 
 class SignupViewModel {
     let name: Observable<String>
-    let nameSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+    private let nameSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
 
     let email: Observable<String>
     private let emailSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")

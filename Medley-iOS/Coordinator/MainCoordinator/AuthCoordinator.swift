@@ -96,16 +96,25 @@ protocol LoginCoordinatable: Coordinator {
 class LoginCoordinator: LoginCoordinatable {
 
     var navigationController: UINavigationController
+    var resolver: Resolver
+
     weak var parentCoordinator: AuthCoordinatable?
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,
+         resolver: Resolver) {
+
         self.navigationController = navigationController
+        self.resolver = resolver
     }
 
     func start() {
-        let vc = LoginViewController.instantiate(from: "Main")
-        vc.coordinator = self
-        navigationController.setViewControllers([vc], animated: false)
+        let viewModel = resolver.resolve(LoginViewModel.self, argument: { () -> Void in
+            self.signup()
+        })!
+
+        let view = resolver.resolve(LoginView.self, argument: viewModel)!
+
+        navigationController.setViewControllers([view], animated: false)
     }
 
     func signup() {
