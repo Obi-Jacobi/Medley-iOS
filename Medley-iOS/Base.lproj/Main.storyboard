@@ -25,8 +25,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQl-Oe-RJ2">
-                                <rect key="frame" x="184" y="812" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="149" y="812" width="116" height="30"/>
+                                <state key="normal" title="Need to sign up?"/>
                                 <connections>
                                     <action selector="signupButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eIH-0v-kgr"/>
                                 </connections>

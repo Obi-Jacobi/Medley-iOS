@@ -21,6 +21,8 @@
 		1A628A3D226A611900DCA73B /* TodoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A3C226A611900DCA73B /* TodoCoordinator.swift */; };
 		1A628CDE226A6C0D00DCA73B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628CDD226A6C0D00DCA73B /* SignupViewController.swift */; };
 		1A6FC232226E19EB00DF1F25 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC231226E19EB00DF1F25 /* TodoViewController.swift */; };
+		1A6FC235226E1E2600DF1F25 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC234226E1E2600DF1F25 /* APIService.swift */; };
+		1A6FC237226E1E3500DF1F25 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC236226E1E3500DF1F25 /* APIClient.swift */; };
 		5B9486F720D64EB7A89EEBB6 /* Pods_Medley_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AB4ACCA14E91FE6A9ED6BD /* Pods_Medley_iOSTests.framework */; };
 		8EBED1442F51A49BE9A21D3A /* Pods_Medley_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */; };
 		FC97EB7EF8A917B30167F597 /* Pods_Medley_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905C393316ACF5ACF4D5A80 /* Pods_Medley_iOSUITests.framework */; };
@@ -64,6 +66,8 @@
 		1A628A3C226A611900DCA73B /* TodoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCoordinator.swift; sourceTree = "<group>"; };
 		1A628CDD226A6C0D00DCA73B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		1A6FC231226E19EB00DF1F25 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		1A6FC234226E1E2600DF1F25 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		1A6FC236226E1E3500DF1F25 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		3CA047751E07A6C8A51D0701 /* Pods-Medley-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Medley-iOSUITests/Pods-Medley-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B58EAE18C449A20D41AADDF /* Pods-Medley-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOS.release.xcconfig"; path = "Target Support Files/Pods-Medley-iOS/Pods-Medley-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medley_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,7 @@
 		1A628A03226A3CCB00DCA73B /* Medley-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1A6FC233226E1E0A00DF1F25 /* Service */,
 				1A628A32226A413800DCA73B /* Coordinator */,
 				1A628A04226A3CCB00DCA73B /* AppDelegate.swift */,
 				1A628A06226A3CCB00DCA73B /* LoginViewController.swift */,
@@ -177,6 +182,15 @@
 				1A628A3C226A611900DCA73B /* TodoCoordinator.swift */,
 			);
 			path = MainCoordinator;
+			sourceTree = "<group>";
+		};
+		1A6FC233226E1E0A00DF1F25 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1A6FC234226E1E2600DF1F25 /* APIService.swift */,
+				1A6FC236226E1E3500DF1F25 /* APIClient.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		EC8D0AC53604DC09640BD026 /* Frameworks */ = {
@@ -410,7 +424,9 @@
 				1A628A07226A3CCB00DCA73B /* LoginViewController.swift in Sources */,
 				1A628CDE226A6C0D00DCA73B /* SignupViewController.swift in Sources */,
 				1A628A05226A3CCB00DCA73B /* AppDelegate.swift in Sources */,
+				1A6FC237226E1E3500DF1F25 /* APIClient.swift in Sources */,
 				1A628A34226A414B00DCA73B /* Coordinator.swift in Sources */,
+				1A6FC235226E1E2600DF1F25 /* APIService.swift in Sources */,
 				1A628A39226A435000DCA73B /* MainCoordinator.swift in Sources */,
 				1A628A3D226A611900DCA73B /* TodoCoordinator.swift in Sources */,
 				1A628A36226A41C200DCA73B /* Storyboarded.swift in Sources */,
