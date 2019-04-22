@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swinject
 
 protocol AuthCoordinatable: Coordinator {
     var parentCoordinator: MainCoordinatable? { get set }
@@ -26,11 +27,13 @@ class AuthCoordinator: AuthCoordinatable {
     var navigationController: UINavigationController
     weak var parentCoordinator: MainCoordinatable?
 
-    init(navigationController: UINavigationController) {
-        signupCoordinator = SignupCoordinator(navigationController: navigationController)
-        loginCoordinator = LoginCoordinator(navigationController: navigationController)
+    init(navigationController: UINavigationController,
+         signupCoordinator: SignupCoordinatable,
+         loginCoordinator: LoginCoordinatable) {
 
         self.navigationController = navigationController
+        self.signupCoordinator = signupCoordinator
+        self.loginCoordinator = loginCoordinator
 
         loginCoordinator.parentCoordinator = self
         signupCoordinator.parentCoordinator = self
@@ -58,16 +61,26 @@ protocol SignupCoordinatable: Coordinator {
 class SignupCoordinator: SignupCoordinatable {
 
     var navigationController: UINavigationController
+    var resolver: Resolver
+
     weak var parentCoordinator: AuthCoordinatable?
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,
+         resolver: Resolver) {
+
         self.navigationController = navigationController
+        self.resolver = resolver
     }
 
     func start() {
         let vc = SignupViewController.instantiate(from: "Main")
         vc.coordinator = self
-        vc.viewModel = SignupViewModel(coordinator: self, apiService: APIClient())
+
+        let viewModel = resolver.resolve(SignupViewModel.self, argument: { () -> Void in
+            self.login()
+        })!
+
+        vc.viewModel = viewModel
         navigationController.setViewControllers([vc], animated: false)
     }
 

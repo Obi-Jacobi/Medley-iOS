@@ -27,8 +27,7 @@ class SignupViewController: UIViewController, Storyboarded, CoordinatedView {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        //coordinator.login()
-        viewModel.goBackToLogin()
+        viewModel.navigateToLogin()
     }
 
     @IBAction func signupButton(_ sender: Any) {

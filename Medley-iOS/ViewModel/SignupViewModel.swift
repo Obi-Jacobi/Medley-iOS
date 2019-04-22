@@ -12,15 +12,16 @@ class SignupViewModel {
     let name: Observable<String>
     private let nameSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
 
-    private let coordinator: SignupCoordinatable
     private let apiService: ApiService
+    private let goToLogin: () -> Void
 
     private let disposeBag = DisposeBag()
 
-    init(coordinator: SignupCoordinatable,
-         apiService: ApiService) {
-        self.coordinator = coordinator
+    init(apiService: ApiService,
+         goToLogin: @escaping () -> Void) {
+
         self.apiService = apiService
+        self.goToLogin = goToLogin
 
         self.name = nameSubject.asObservable()
 
@@ -48,7 +49,7 @@ class SignupViewModel {
         }
     }
 
-    func goBackToLogin() {
-        coordinator.login()
+    func navigateToLogin() {
+        goToLogin()
     }
 }

@@ -9,18 +9,19 @@
 import UIKit
 
 protocol MainCoordinatable: Coordinator {
-    var authCoordinator: AuthCoordinator { get }
+    var authCoordinator: AuthCoordinatable { get }
 }
 
 class MainCoordinator: MainCoordinatable {
 
     var navigationController: UINavigationController
-    var authCoordinator: AuthCoordinator
+    var authCoordinator: AuthCoordinatable
 
-    init() {
-        navigationController = UINavigationController()
+    init(navigationController: UINavigationController,
+         authCoordinator: AuthCoordinatable) {
 
-        authCoordinator = AuthCoordinator(navigationController: navigationController)
+        self.navigationController = navigationController
+        self.authCoordinator = authCoordinator
     }
 
     func start() {

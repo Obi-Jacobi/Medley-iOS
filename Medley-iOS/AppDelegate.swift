@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swinject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,13 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var coordinator: MainCoordinatable?
 
+    let assembler = Assembler([
+        CoordinatorAssembly(),
+        ViewModelAssembly()
+    ])
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        let nav = UINavigationController()
-//        nav.isNavigationBarHidden = true
-
-//        coordinator = MainCoordinator(navigationController: nav)
-        coordinator = MainCoordinator()
+        
+        coordinator = assembler.resolver.resolve(MainCoordinatable.self)
         coordinator?.start()
 
         // create a basic UIWindow and activate it
