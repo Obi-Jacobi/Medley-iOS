@@ -17,15 +17,15 @@ class LoginViewModel {
     private let passwordSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
 
     private let apiService: ApiService
-    private let goToSignup: () -> Void
+    private weak var coordinator: AuthCoordinatable?
 
     private let disposeBag = DisposeBag()
 
     init(apiService: ApiService,
-         goToSignup: @escaping () -> Void) {
+         coordinator: AuthCoordinatable) {
 
         self.apiService = apiService
-        self.goToSignup = goToSignup
+        self.coordinator = coordinator
 
         self.email = emailSubject.asObservable()
         self.password = passwordSubject.asObservable()
@@ -55,6 +55,6 @@ class LoginViewModel {
     }
 
     func navigateToSignup() {
-        goToSignup()
+        coordinator?.signup()
     }
 }

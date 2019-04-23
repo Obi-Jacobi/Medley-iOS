@@ -10,14 +10,16 @@ import Swinject
 
 class ViewAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(SignupView.self) { (r: Resolver, viewModel: SignupViewModel) in
+        container.register(SignupView.self) { r in
+            let viewModel = r.resolve(SignupViewModel.self)!
             let vc = SignupViewController.instantiate(from: "Main")
             vc.viewModel = viewModel
 
             return vc
         }.inObjectScope(.transient)
 
-        container.register(LoginView.self) { (r: Resolver, viewModel: LoginViewModel) in
+        container.register(LoginView.self) { r in
+            let viewModel = r.resolve(LoginViewModel.self)!
             let vc = LoginViewController.instantiate(from: "Main")
             vc.viewModel = viewModel
 
