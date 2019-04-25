@@ -32,26 +32,30 @@ class AuthCoordinator: AuthCoordinatable {
     }
 
     func start() {
+        navigationController.isNavigationBarHidden = true
+
         login()
     }
 
     func login() {
         let view = resolver.resolve(LoginView.self)!
 
-        navigationController.setViewControllers([view], animated: false)
+        navigationController.setViewControllers([view], animated: true)
     }
 
     func signup() {
         let view = resolver.resolve(SignupView.self)!
 
-        navigationController.setViewControllers([view], animated: false)
+        navigationController.setViewControllers([view], animated: true)
     }
 
     func successfulSignup() {
+        let view = resolver.resolve(SignupSuccessView.self)!
 
+        navigationController.setViewControllers([view], animated: true)
     }
 
     func successfulLogin() {
-
+        parentCoordinator?.succesfulLogin()
     }
 }

@@ -13,12 +13,17 @@ class CoordinatorAssembly: Assembly {
         container.register(MainCoordinatable.self) { r in
             let navigationController = UINavigationController()
             let authCoordinator = r.resolve(AuthCoordinatable.self, argument: navigationController)!
+            let todoCoordinator = r.resolve(TodoCoordinatable.self, argument: navigationController)!
 
-            return MainCoordinator(navigationController: navigationController, authCoordinator: authCoordinator)
+            return MainCoordinator(navigationController: navigationController, authCoordinator: authCoordinator, todoCoordinator: todoCoordinator)
         }.inObjectScope(.container)
 
         container.register(AuthCoordinatable.self) { (r: Resolver, navigationController: UINavigationController) in
             return AuthCoordinator(resolver: r, navigationController: navigationController)
+        }.inObjectScope(.container)
+
+        container.register(TodoCoordinatable.self) { (r: Resolver, navigationController: UINavigationController) in
+            return TodoCoordinator(resolver: r, navigationController: navigationController)
         }.inObjectScope(.container)
     }
 }

@@ -66,6 +66,9 @@ class SignupViewModel {
             switch result {
             case .success(let response):
                 print(response.body)
+                DispatchQueue.main.async {
+                     self.coordinator?.successfulSignup()
+                }
             case .failure(let error):
                 print("Error perform signup request \(error)")
             }
@@ -73,6 +76,6 @@ class SignupViewModel {
     }
 
     func navigateToLogin() {
-        coordinator?.login()
+        self.coordinator?.login()
     }
 }

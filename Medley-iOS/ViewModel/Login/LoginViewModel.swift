@@ -48,6 +48,9 @@ class LoginViewModel {
             switch result {
             case .success(let response):
                 print(response.body)
+                DispatchQueue.main.async {
+                    self.coordinator?.successfulLogin()
+                }
             case .failure(let error):
                 print("Error performing login request \(error)")
             }

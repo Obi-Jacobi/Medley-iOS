@@ -8,9 +8,9 @@
 
 import UIKit
 
-class TodoViewController: UIViewController, Storyboarded {
+class TodoViewController: UIViewController, TodoView {
 
-    var coordinator: TodoCoordinatable!
+    var viewModel: TodoViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

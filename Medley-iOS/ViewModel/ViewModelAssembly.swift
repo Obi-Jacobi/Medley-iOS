@@ -17,12 +17,24 @@ class ViewModelAssembly: Assembly {
             return SignupViewModel(apiService: apiService, coordinator: coordinator)
         }.inObjectScope(.transient)
 
+        container.register(SignupSuccessViewModel.self) { r in
+            let coordinator = r.resolve(AuthCoordinatable.self, argument: UINavigationController())!
+
+            return SignupSuccessViewModel(coordinator: coordinator)
+        }.inObjectScope(.transient)
+
         container.register(LoginViewModel.self) { r in
             let apiService = r.resolve(ApiService.self)!
             let coordinator = r.resolve(AuthCoordinatable.self, argument: UINavigationController())!
 
             return LoginViewModel(apiService: apiService, coordinator: coordinator)
         }.inObjectScope(.transient)
-        
+
+        container.register(TodoViewModel.self) { r in
+            let apiService = r.resolve(ApiService.self)!
+            let coordinator = r.resolve(TodoCoordinatable.self, argument: UINavigationController())!
+
+            return TodoViewModel(apiService: apiService, coordinator: coordinator)
+        }.inObjectScope(.transient)
     }
 }
