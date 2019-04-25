@@ -16,6 +16,9 @@ target 'Medley-iOS' do
 
   pod 'Swinject'
 
+  pod 'Quick'
+  pod 'Nimble'
+
 end
 
 target 'Medley-iOSTests' do
