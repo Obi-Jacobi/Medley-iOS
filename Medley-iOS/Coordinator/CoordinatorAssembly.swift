@@ -13,23 +13,17 @@ class CoordinatorAssembly: Assembly {
         container.register(MainCoordinatable.self) { r in
             let navigationController = UINavigationController()
             let authCoordinator = r.resolve(AuthCoordinatable.self, argument: navigationController)!
+            let todoCoordinator = r.resolve(TodoCoordinatable.self, argument: navigationController)!
 
-            return MainCoordinator(navigationController: navigationController, authCoordinator: authCoordinator)
+            return MainCoordinator(navigationController: navigationController, authCoordinator: authCoordinator, todoCoordinator: todoCoordinator)
         }.inObjectScope(.container)
 
         container.register(AuthCoordinatable.self) { (r: Resolver, navigationController: UINavigationController) in
-            let signupCoordinator = r.resolve(SignupCoordinatable.self, argument: navigationController)!
-            let loginCoordinator = r.resolve(LoginCoordinatable.self, argument: navigationController)!
-
-            return AuthCoordinator(navigationController: navigationController, signupCoordinator: signupCoordinator, loginCoordinator: loginCoordinator)
+            return AuthCoordinator(resolver: r, navigationController: navigationController)
         }.inObjectScope(.container)
 
-        container.register(SignupCoordinatable.self) { (r: Resolver, navigationController: UINavigationController) in
-            return SignupCoordinator(navigationController: navigationController, resolver: r)
-        }.inObjectScope(.container)
-
-        container.register(LoginCoordinatable.self) { (r: Resolver, navigationController: UINavigationController) in
-            return LoginCoordinator(navigationController: navigationController)
+        container.register(TodoCoordinatable.self) { (r: Resolver, navigationController: UINavigationController) in
+            return TodoCoordinator(resolver: r, navigationController: navigationController)
         }.inObjectScope(.container)
     }
 }

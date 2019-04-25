@@ -10,21 +10,34 @@ import UIKit
 
 protocol MainCoordinatable: Coordinator {
     var authCoordinator: AuthCoordinatable { get }
+    var todoCoordinator: TodoCoordinatable { get }
+
+    func succesfulLogin()
 }
 
 class MainCoordinator: MainCoordinatable {
 
     var navigationController: UINavigationController
     var authCoordinator: AuthCoordinatable
+    var todoCoordinator: TodoCoordinatable
 
     init(navigationController: UINavigationController,
-         authCoordinator: AuthCoordinatable) {
+         authCoordinator: AuthCoordinatable,
+         todoCoordinator: TodoCoordinatable) {
 
         self.navigationController = navigationController
         self.authCoordinator = authCoordinator
+        self.todoCoordinator = todoCoordinator
+
+        self.authCoordinator.parentCoordinator = self
+        self.todoCoordinator.parentCoordinator = self
     }
 
     func start() {
         authCoordinator.start()
+    }
+
+    func succesfulLogin() {
+        todoCoordinator.start()
     }
 }
