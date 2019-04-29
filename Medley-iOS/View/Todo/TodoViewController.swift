@@ -16,5 +16,15 @@ class TodoViewController: UIViewController, TodoView {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        viewModel.getTodos()
+    }
+
+    @IBAction func getTodos(_ sender: UIButton) {
+        viewModel.getTodos()
+    }
+
+    @IBAction func makeTodo(_ sender: UIButton) {
+        viewModel.makeTodo()
     }
 }

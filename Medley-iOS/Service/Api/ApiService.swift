@@ -35,9 +35,19 @@ struct LoginResponse: Codable {
 }
 extension LoginResponse: Equatable { }
 
+struct Todo: Codable {
+    let id: Int
+    let title: String
+    let userID: Int
+}
+
+struct TodoRequest: Codable {
+    let title: String
+}
+
 protocol ApiService {
     func signup(request signupRequest: SignupRequest, _ completion: @escaping (Result<SignupResponse, Error>) -> Void) throws
     func login(request loginRequest: LoginRequest, _ completion: @escaping (Result<LoginResponse, Error>) -> Void) throws
-    func getAllTodos()
-    func makeTodo()
+    func getAllTodos(_ completion: @escaping (Result<[Todo], Error>) -> Void) throws
+    func makeTodo(request todoRequest: TodoRequest, _ completion: @escaping (Result<Todo, Error>) -> Void) throws
 }

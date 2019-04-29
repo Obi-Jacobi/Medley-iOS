@@ -21,4 +21,28 @@ class TodoViewModel {
         self.apiService = apiService
         self.coordinator = coordinator
     }
+
+    func getTodos() {
+        try? apiService.getAllTodos { result in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print("Error performing login request \(error)")
+            }
+        }
+    }
+
+    func makeTodo() {
+        let todoRequest = TodoRequest(title: "new todo")
+
+        try? apiService.makeTodo(request: todoRequest) { result in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print("Error performing login request \(error)")
+            }
+        }
+    }
 }

@@ -286,10 +286,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLF-jq-82I">
+                                <rect key="frame" x="169.5" y="433" width="75" height="30"/>
+                                <state key="normal" title="Make Todo"/>
+                                <connections>
+                                    <action selector="makeTodo:" destination="FNp-Jm-tDb" eventType="touchUpInside" id="LJl-px-g88"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7S-sH-PjT">
+                                <rect key="frame" x="171.5" y="395" width="71" height="30"/>
+                                <state key="normal" title="Get Todos"/>
+                                <connections>
+                                    <action selector="getTodos:" destination="FNp-Jm-tDb" eventType="touchUpInside" id="KGo-2W-7kS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xLF-jq-82I" firstAttribute="centerX" secondItem="lnH-4X-qLM" secondAttribute="centerX" id="5i4-k6-yXy"/>
                             <constraint firstItem="CQV-Ow-OaF" firstAttribute="top" secondItem="Jge-Yg-9Vi" secondAttribute="top" constant="30" id="D9w-Iz-uq6"/>
+                            <constraint firstItem="xLF-jq-82I" firstAttribute="centerY" secondItem="lnH-4X-qLM" secondAttribute="centerY" id="KMc-Iq-jDL"/>
+                            <constraint firstItem="xLF-jq-82I" firstAttribute="top" secondItem="R7S-sH-PjT" secondAttribute="bottom" constant="8" id="bI1-tg-szb"/>
+                            <constraint firstItem="R7S-sH-PjT" firstAttribute="centerX" secondItem="lnH-4X-qLM" secondAttribute="centerX" id="heC-mb-waU"/>
                             <constraint firstItem="CQV-Ow-OaF" firstAttribute="centerX" secondItem="lnH-4X-qLM" secondAttribute="centerX" id="jkP-nw-cCz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jge-Yg-9Vi"/>
