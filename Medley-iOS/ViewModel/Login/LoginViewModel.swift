@@ -47,7 +47,7 @@ class LoginViewModel {
         try? apiService.login(request: loginRequest) { result in
             switch result {
             case .success(let response):
-                print(response.body)
+                print(response)
                 DispatchQueue.main.async {
                     self.coordinator?.successfulLogin()
                 }

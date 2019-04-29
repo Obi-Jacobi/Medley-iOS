@@ -14,6 +14,8 @@ target 'Medley-iOS' do
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
 
+  pod 'Alamofire', '~> 5.0.0-beta.6'
+
   pod 'Swinject'
 end
 
