@@ -20,6 +20,7 @@ struct SignupResponse: Codable {
     let name: String
     let email: String
 }
+extension SignupResponse: Equatable { }
 
 struct LoginRequest: Codable {
     var email: String

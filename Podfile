@@ -15,15 +15,13 @@ target 'Medley-iOS' do
   pod 'RxCocoa', '~> 4.0'
 
   pod 'Swinject'
-
-  pod 'Quick'
-  pod 'Nimble'
-
 end
 
 target 'Medley-iOSTests' do
     inherit! :search_paths
     # Pods for testing
+
+    pod 'OHHTTPStubs/Swift'
 end
 
 target 'Medley-iOSUITests' do

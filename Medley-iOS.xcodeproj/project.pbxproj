@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A43BF7322722342005F4D39 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A43BF7222722342005F4D39 /* TodoView.swift */; };
 		1A43BF7622722373005F4D39 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A43BF7522722373005F4D39 /* TodoViewModel.swift */; };
+		1A43BF7822722FD9005F4D39 /* ApiClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A43BF7722722FD9005F4D39 /* ApiClientTests.swift */; };
 		1A628A05226A3CCB00DCA73B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A04226A3CCB00DCA73B /* AppDelegate.swift */; };
 		1A628A07226A3CCB00DCA73B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A06226A3CCB00DCA73B /* LoginViewController.swift */; };
 		1A628A0A226A3CCB00DCA73B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A628A08226A3CCB00DCA73B /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		1A43BF7222722342005F4D39 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 		1A43BF7522722373005F4D39 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
+		1A43BF7722722FD9005F4D39 /* ApiClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientTests.swift; sourceTree = "<group>"; };
 		1A628A01226A3CCB00DCA73B /* Medley-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medley-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A628A04226A3CCB00DCA73B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A628A06226A3CCB00DCA73B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				1A628A19226A3CCD00DCA73B /* Medley_iOSTests.swift */,
 				1A628A1B226A3CCD00DCA73B /* Info.plist */,
+				1A43BF7722722FD9005F4D39 /* ApiClientTests.swift */,
 			);
 			path = "Medley-iOSTests";
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				1A628A11226A3CCD00DCA73B /* Sources */,
 				1A628A12226A3CCD00DCA73B /* Frameworks */,
 				1A628A13226A3CCD00DCA73B /* Resources */,
+				0BFBEF737C146B8CD93627BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -474,6 +478,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0BFBEF737C146B8CD93627BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Medley-iOSTests/Pods-Medley-iOSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Medley-iOSTests/Pods-Medley-iOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B577C98B375A97F0DADCE289 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,8 +575,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Medley-iOS/Pods-Medley-iOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
@@ -559,8 +583,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
@@ -608,6 +630,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A43BF7822722FD9005F4D39 /* ApiClientTests.swift in Sources */,
 				1A628A1A226A3CCD00DCA73B /* Medley_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
