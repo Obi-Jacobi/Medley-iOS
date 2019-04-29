@@ -20,6 +20,7 @@ struct SignupResponse: Codable {
     let name: String
     let email: String
 }
+extension SignupResponse: Equatable { }
 
 struct LoginRequest: Codable {
     var email: String
@@ -32,12 +33,11 @@ struct LoginResponse: Codable {
     let userID: Int
     let expiresAt: String
 }
+extension LoginResponse: Equatable { }
 
 protocol ApiService {
-    typealias APIServiceCompletion<Type> = (Result<APIResponse<Type>, APIError>) -> Void
-
-    func signup(request signupRequest: SignupRequest, _ completion: @escaping APIServiceCompletion<SignupResponse>) throws
-    func login(request loginRequest: LoginRequest, _ completion: @escaping APIServiceCompletion<LoginResponse>) throws
+    func signup(request signupRequest: SignupRequest, _ completion: @escaping (Result<SignupResponse, Error>) -> Void) throws
+    func login(request loginRequest: LoginRequest, _ completion: @escaping (Result<LoginResponse, Error>) -> Void) throws
     func getAllTodos()
     func makeTodo()
 }

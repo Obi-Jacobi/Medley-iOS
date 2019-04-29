@@ -1,25 +1,45 @@
 PODS:
+  - Alamofire (5.0.0-beta.6)
+  - OHHTTPStubs/Core (7.0.0)
+  - OHHTTPStubs/Default (7.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (7.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (7.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (7.0.0)
+  - OHHTTPStubs/Swift (7.0.0):
+    - OHHTTPStubs/Default
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
   - Swinject (2.6.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.6)
+  - OHHTTPStubs/Swift
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
   - Swinject
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - OHHTTPStubs
     - RxCocoa
     - RxSwift
     - Swinject
 
 SPEC CHECKSUMS:
+  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
+  OHHTTPStubs: ef33a2c353110d306bb98f695435ec56ff5a26c3
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
 
-PODFILE CHECKSUM: 179b22923df89e87b6e0d707294c518b395eb471
+PODFILE CHECKSUM: 631c0e3e319d73242b8e3e94101d8f7b861b8c50
 
 COCOAPODS: 1.6.1

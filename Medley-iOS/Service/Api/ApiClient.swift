@@ -7,12 +7,7 @@
 //
 
 import Foundation
-
-enum APIError: Error {
-    case invalidURL
-    case requestFailed
-    case decodingFailure
-}
+import Alamofire
 
 enum HTTPMethod: String {
     case get = "GET"
@@ -56,24 +51,26 @@ class APIRequest {
     }
 }
 
-struct APIResponse<Body> {
-    let statusCode: Int
-    let body: Body
-}
-
 struct ApiClient: ApiService {
 
-    private let session = URLSession.shared
     private let baseURL = URL(string: "http://localhost:8080")
 
-    func signup(request signupRequest: SignupRequest, _ completion: @escaping APIServiceCompletion<SignupResponse>) throws {
+    func signup(request signupRequest: SignupRequest, _ completion: @escaping (Result<SignupResponse, Error>) -> Void) throws {
         let apiRequest = try APIRequest(method: .post, path: "users", body: signupRequest)
-        request(apiRequest, decodeTo: SignupResponse.self, completion)
+        let request = urlRequest(from: apiRequest)!
+
+        AF.request(request).responseDecodable { (response: DataResponse<SignupResponse>) in
+            completion(response.result)
+        }
     }
 
-    func login(request loginRequest: LoginRequest, _ completion: @escaping APIServiceCompletion<LoginResponse>) throws {
+    func login(request loginRequest: LoginRequest, _ completion: @escaping (Result<LoginResponse, Error>) -> Void) throws {
         let apiRequest = try APIRequest(method: HTTPMethod.post, path: "login", loginRequest: loginRequest)
-        request(apiRequest, decodeTo: LoginResponse.self, completion)
+        let request = urlRequest(from: apiRequest)!
+
+        AF.request(request).responseDecodable { (response: DataResponse<LoginResponse>) in
+            completion(response.result)
+        }
     }
 
     func getAllTodos() {
@@ -84,8 +81,7 @@ struct ApiClient: ApiService {
 
     }
 
-    private func request<Type: Codable>(_ request: APIRequest, decodeTo: Type.Type, _ completion: @escaping APIServiceCompletion<Type>) {
-
+    private func urlRequest(from request: APIRequest) -> URLRequest? {
         var urlComponents = URLComponents()
         urlComponents.scheme = baseURL?.scheme
         urlComponents.host = baseURL?.host
@@ -94,8 +90,7 @@ struct ApiClient: ApiService {
         urlComponents.queryItems = request.queryItems
 
         guard let url = urlComponents.url?.appendingPathComponent(request.path) else {
-            completion(.failure(.invalidURL))
-            return
+            return nil
         }
 
         var urlRequest = URLRequest(url: url)
@@ -106,22 +101,6 @@ struct ApiClient: ApiService {
             urlRequest.addValue($0.value, forHTTPHeaderField: $0.field)
         }
 
-        let task = session.dataTask(with: urlRequest) { (data, response, error) in
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion(.failure(.requestFailed))
-                return
-            }
-
-            guard let data = data,
-                let decoded = try? JSONDecoder().decode(Type.self, from: data) else {
-
-                    completion(.failure(.decodingFailure))
-                    return
-            }
-
-            completion(.success(APIResponse<Type>(statusCode: httpResponse.statusCode, body: decoded)))
-        }
-
-        task.resume()
+        return urlRequest
     }
 }

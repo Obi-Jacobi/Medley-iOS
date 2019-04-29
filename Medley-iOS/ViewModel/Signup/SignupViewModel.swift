@@ -65,7 +65,7 @@ class SignupViewModel {
         try? apiService.signup(request: signupRequest) { result in
             switch result {
             case .success(let response):
-                print(response.body)
+                print(response)
                 DispatchQueue.main.async {
                      self.coordinator?.successfulSignup()
                 }
