@@ -33,6 +33,7 @@ struct LoginResponse: Codable {
     let userID: Int
     let expiresAt: String
 }
+extension LoginResponse: Equatable { }
 
 protocol ApiService {
     func signup(request signupRequest: SignupRequest, _ completion: @escaping (Result<SignupResponse, Error>) -> Void) throws
