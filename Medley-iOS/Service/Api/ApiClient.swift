@@ -32,6 +32,29 @@ class APIRequest {
     var headers: [HTTPHeader]?
     var body: Data?
 
+    init(method: HTTPMethod, path: String) throws {
+        self.method = method
+        self.path = path
+
+        let defaults = UserDefaults.standard
+        let authToken = defaults.string(forKey: "authToken")
+        let authValue = "Bearer \(authToken!)"
+        self.headers = [HTTPHeader(field: "Authorization", value: authValue)]
+    }
+
+    init<Body: Encodable>(authed method: HTTPMethod, path: String, body: Body) throws {
+        self.method = method
+        self.path = path
+
+        self.body = try JSONEncoder().encode(body)
+
+        let defaults = UserDefaults.standard
+        let authToken = defaults.string(forKey: "authToken")
+        let authValue = "Bearer \(authToken!)"
+        self.headers = [HTTPHeader(field: "Authorization", value: authValue),
+                        HTTPHeader(field: "Content-Type", value: "application/json")]
+    }
+
     init(method: HTTPMethod, path: String, loginRequest: LoginRequest) throws {
         self.method = method
         self.path = path
@@ -73,12 +96,22 @@ struct ApiClient: ApiService {
         }
     }
 
-    func getAllTodos() {
+    func getAllTodos(_ completion: @escaping (Result<[Todo], Error>) -> Void) throws {
+        let apiRequest = try APIRequest(method: HTTPMethod.get, path: "todos")
+        let request = urlRequest(from: apiRequest)!
 
+        AF.request(request).responseDecodable { (response: DataResponse<[Todo]>) in
+            completion(response.result)
+        }
     }
 
-    func makeTodo() {
+    func makeTodo(request todoRequest: TodoRequest, _ completion: @escaping (Result<Todo, Error>) -> Void) throws {
+        let apiRequest = try APIRequest(authed: HTTPMethod.post, path: "todos", body: todoRequest)
+        let request = urlRequest(from: apiRequest)!
 
+        AF.request(request).responseDecodable { (response: DataResponse<Todo>) in
+            completion(response.result)
+        }
     }
 
     private func urlRequest(from request: APIRequest) -> URLRequest? {

@@ -47,7 +47,9 @@ class LoginViewModel {
         try? apiService.login(request: loginRequest) { result in
             switch result {
             case .success(let response):
-                print(response)
+                let defaults = UserDefaults.standard
+                defaults.set(response.string, forKey: "authToken")
+
                 DispatchQueue.main.async {
                     self.coordinator?.successfulLogin()
                 }
