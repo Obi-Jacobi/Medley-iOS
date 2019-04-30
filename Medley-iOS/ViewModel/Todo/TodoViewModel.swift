@@ -37,7 +37,6 @@ class TodoViewModel: TodoVM {
         try? apiService.getAllTodos { result in
             switch result {
             case .success(let response):
-                print(response)
                 self._todos.accept(response)
             case .failure(let error):
                 print("Error performing login request \(error)")
@@ -50,8 +49,7 @@ class TodoViewModel: TodoVM {
 
         try? apiService.makeTodo(request: todoRequest) { result in
             switch result {
-            case .success(let response):
-                print(response)
+            case .success:
                 self.getTodos()
             case .failure(let error):
                 print("Error performing login request \(error)")

@@ -36,6 +36,6 @@ class SignupViewController: UIViewController, SignupView {
         signupButton.rx.tap.asObservable().subscribe(onNext: viewModel.signup).disposed(by: disposeBag)
         loginButton.rx.tap.asObservable().subscribe(onNext: viewModel.navigateToLogin).disposed(by: disposeBag)
 
-        viewModel.signupEnabled.bind(to: signupButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.signupEnabled.drive(signupButton.rx.isEnabled).disposed(by: disposeBag)
     }
 }

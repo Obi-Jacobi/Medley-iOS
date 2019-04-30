@@ -17,12 +17,12 @@ protocol LoginVM {
     func navigateToSignup()
 
     // Outputs
-    var loginEnabled: Observable<Bool> { get }
+    var loginEnabled: Driver<Bool> { get }
 }
 
 class LoginViewModel: LoginVM {
 
-    let loginEnabled: Observable<Bool>
+    let loginEnabled: Driver<Bool>
 
     private let apiService: ApiService
     private weak var coordinator: AuthCoordinatable?
@@ -35,7 +35,7 @@ class LoginViewModel: LoginVM {
 
         self.loginEnabled = Observable.combineLatest(email, password) { emailValue, passwordValue in
             return !emailValue.isEmpty && !passwordValue.isEmpty
-        }
+        }.asDriver(onErrorJustReturn: false)
     }
 
     private let email = BehaviorRelay(value: "")

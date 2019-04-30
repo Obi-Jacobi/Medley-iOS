@@ -19,12 +19,12 @@ protocol SignupVM {
     func navigateToLogin()
 
     // Outputs
-    var signupEnabled: Observable<Bool> { get }
+    var signupEnabled: Driver<Bool> { get }
 }
 
 class SignupViewModel: SignupVM {
 
-    let signupEnabled: Observable<Bool>
+    let signupEnabled: Driver<Bool>
 
     private let apiService: ApiService
     private weak var coordinator: AuthCoordinatable?
@@ -37,7 +37,7 @@ class SignupViewModel: SignupVM {
 
         self.signupEnabled = Observable.combineLatest(name, email, password, verifyPassword) { nameValue, emailValue, passwordValue, verifyPasswordValue in
             return !nameValue.isEmpty && !emailValue.isEmpty && !passwordValue.isEmpty && !verifyPasswordValue.isEmpty
-        }
+        }.asDriver(onErrorJustReturn: false)
     }
 
     private let name = BehaviorRelay(value: "")
