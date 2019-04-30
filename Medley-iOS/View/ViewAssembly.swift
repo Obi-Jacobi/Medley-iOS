@@ -35,7 +35,7 @@ class ViewAssembly: Assembly {
         }.inObjectScope(.transient)
 
         container.register(TodoView.self) { r in
-            let viewModel = r.resolve(TodoViewModel.self)!
+            let viewModel = r.resolve(TodoVM.self)!
 
             let vc = TodoViewController.instantiate(from: "Main")
             vc.viewModel = viewModel

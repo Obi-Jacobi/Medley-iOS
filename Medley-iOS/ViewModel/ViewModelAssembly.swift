@@ -30,7 +30,7 @@ class ViewModelAssembly: Assembly {
             return LoginViewModel(apiService: apiService, coordinator: coordinator)
         }.inObjectScope(.transient)
 
-        container.register(TodoViewModel.self) { r in
+        container.register(TodoVM.self) { r in
             let apiService = r.resolve(ApiService.self)!
             let coordinator = r.resolve(TodoCoordinatable.self, argument: UINavigationController())!
 

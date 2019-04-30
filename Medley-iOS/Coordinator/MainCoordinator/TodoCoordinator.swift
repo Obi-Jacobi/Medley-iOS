@@ -27,6 +27,8 @@ class TodoCoordinator: TodoCoordinatable {
     }
 
     func start() {
+        navigationController.isNavigationBarHidden = false
+
         let view = resolver.resolve(TodoView.self)!
 
         navigationController.setViewControllers([view], animated: true)

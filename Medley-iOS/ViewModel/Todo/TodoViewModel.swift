@@ -7,19 +7,30 @@
 //
 
 import RxSwift
+import RxCocoa
 
-class TodoViewModel {
+protocol TodoVM {
+    var todos: Driver<[Todo]> { get }
+
+    func getTodos()
+    func makeTodo()
+}
+
+class TodoViewModel: TodoVM {
+
+    let todos: Driver<[Todo]>
+    private let _todos: BehaviorRelay<[Todo]> = BehaviorRelay(value: [])
 
     private let apiService: ApiService
     private weak var coordinator: TodoCoordinatable?
-
-    private let disposeBag = DisposeBag()
 
     init(apiService: ApiService,
          coordinator: TodoCoordinatable) {
 
         self.apiService = apiService
         self.coordinator = coordinator
+
+        self.todos = _todos.asDriver()
     }
 
     func getTodos() {
@@ -27,6 +38,7 @@ class TodoViewModel {
             switch result {
             case .success(let response):
                 print(response)
+                self._todos.accept(response)
             case .failure(let error):
                 print("Error performing login request \(error)")
             }
@@ -40,6 +52,7 @@ class TodoViewModel {
             switch result {
             case .success(let response):
                 print(response)
+                self.getTodos()
             case .failure(let error):
                 print("Error performing login request \(error)")
             }

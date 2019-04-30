@@ -37,6 +37,8 @@
 		1A6FC732226E5E9B00DF1F25 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC731226E5E9B00DF1F25 /* ServiceAssembly.swift */; };
 		1A6FC734226E673B00DF1F25 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC733226E673B00DF1F25 /* LoginView.swift */; };
 		1A6FC737226E678D00DF1F25 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC736226E678D00DF1F25 /* LoginViewModel.swift */; };
+		1A85066C2278BC2600C40A87 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85066A2278BC2600C40A87 /* TodoTableViewCell.swift */; };
+		1A85066D2278BC2600C40A87 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A85066B2278BC2600C40A87 /* TodoTableViewCell.xib */; };
 		5B9486F720D64EB7A89EEBB6 /* Pods_Medley_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AB4ACCA14E91FE6A9ED6BD /* Pods_Medley_iOSTests.framework */; };
 		8EBED1442F51A49BE9A21D3A /* Pods_Medley_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */; };
 		FC97EB7EF8A917B30167F597 /* Pods_Medley_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905C393316ACF5ACF4D5A80 /* Pods_Medley_iOSUITests.framework */; };
@@ -96,6 +98,8 @@
 		1A6FC731226E5E9B00DF1F25 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		1A6FC733226E673B00DF1F25 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1A6FC736226E678D00DF1F25 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		1A85066A2278BC2600C40A87 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		1A85066B2278BC2600C40A87 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		3CA047751E07A6C8A51D0701 /* Pods-Medley-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Medley-iOSUITests/Pods-Medley-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B58EAE18C449A20D41AADDF /* Pods-Medley-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOS.release.xcconfig"; path = "Target Support Files/Pods-Medley-iOS/Pods-Medley-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medley_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +144,8 @@
 			children = (
 				1A43BF7222722342005F4D39 /* TodoView.swift */,
 				1A6FC231226E19EB00DF1F25 /* TodoViewController.swift */,
+				1A85066A2278BC2600C40A87 /* TodoTableViewCell.swift */,
+				1A85066B2278BC2600C40A87 /* TodoTableViewCell.xib */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -458,6 +464,7 @@
 				1A628A0F226A3CCD00DCA73B /* LaunchScreen.storyboard in Resources */,
 				1A628A0C226A3CCD00DCA73B /* Assets.xcassets in Resources */,
 				1A628A0A226A3CCB00DCA73B /* Main.storyboard in Resources */,
+				1A85066D2278BC2600C40A87 /* TodoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +621,7 @@
 				1A6FC722226E23DF00DF1F25 /* SignupViewModel.swift in Sources */,
 				1A6FC72E226E5AEC00DF1F25 /* ViewAssembly.swift in Sources */,
 				1A628A34226A414B00DCA73B /* Coordinator.swift in Sources */,
+				1A85066C2278BC2600C40A87 /* TodoTableViewCell.swift in Sources */,
 				1A43BF7322722342005F4D39 /* TodoView.swift in Sources */,
 				1A6FC72B226E5A2200DF1F25 /* SignupView.swift in Sources */,
 				1A6FC726226E4C0C00DF1F25 /* CoordinatorAssembly.swift in Sources */,

@@ -34,7 +34,15 @@ class MainCoordinator: MainCoordinatable {
     }
 
     func start() {
-        authCoordinator.start()
+        let defaults = UserDefaults.standard
+        let authToken = defaults.string(forKey: "authToken")
+
+        guard authToken != nil else {
+            authCoordinator.start()
+            return
+        }
+
+        succesfulLogin()
     }
 
     func succesfulLogin() {
