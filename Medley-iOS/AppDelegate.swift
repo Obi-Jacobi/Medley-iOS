@@ -24,7 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
+//        let defaults = UserDefaults.standard
+//        defaults.setValue(nil, forKey: "authToken")
+
         coordinator = assembler.resolver.resolve(MainCoordinatable.self)
         coordinator?.start()
 

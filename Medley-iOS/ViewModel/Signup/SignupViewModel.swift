@@ -19,12 +19,14 @@ protocol SignupVM {
     func navigateToLogin()
 
     // Outputs
+    var isLoading: Driver<Bool> { get }
     var signupEnabled: Driver<Bool> { get }
 }
 
 class SignupViewModel: SignupVM {
 
     let signupEnabled: Driver<Bool>
+    let isLoading: Driver<Bool>
 
     private let apiService: ApiService
     private weak var coordinator: AuthCoordinatable?
@@ -38,6 +40,8 @@ class SignupViewModel: SignupVM {
         self.signupEnabled = Observable.combineLatest(name, email, password, verifyPassword) { nameValue, emailValue, passwordValue, verifyPasswordValue in
             return !nameValue.isEmpty && !emailValue.isEmpty && !passwordValue.isEmpty && !verifyPasswordValue.isEmpty
         }.asDriver(onErrorJustReturn: false)
+
+        self.isLoading = signupLoading.asDriver(onErrorJustReturn: false)
     }
 
     private let name = BehaviorRelay(value: "")
@@ -52,19 +56,19 @@ class SignupViewModel: SignupVM {
     private let verifyPassword = BehaviorRelay(value: "")
     func verifyPasswordChanged(_ newVerifyPassword: String) { verifyPassword.accept(newVerifyPassword) }
 
+    private let signupLoading = BehaviorRelay(value: false)
     func signup() {
         let signupRequest = SignupRequest(name: name.value, email: email.value, password: password.value, verifyPassword: verifyPassword.value)
 
+        signupLoading.accept(true)
         try? apiService.signup(request: signupRequest) { result in
             switch result {
-            case .success(let response):
-                print(response)
-                DispatchQueue.main.async {
-                     self.coordinator?.successfulSignup()
-                }
+            case .success:
+                self.coordinator?.successfulSignup()
             case .failure(let error):
                 print("Error perform signup request \(error)")
             }
+            self.signupLoading.accept(false)
         }
     }
 

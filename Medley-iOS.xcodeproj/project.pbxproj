@@ -15,7 +15,6 @@
 		1A628A0A226A3CCB00DCA73B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A628A08226A3CCB00DCA73B /* Main.storyboard */; };
 		1A628A0C226A3CCD00DCA73B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A628A0B226A3CCD00DCA73B /* Assets.xcassets */; };
 		1A628A0F226A3CCD00DCA73B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A628A0D226A3CCD00DCA73B /* LaunchScreen.storyboard */; };
-		1A628A1A226A3CCD00DCA73B /* Medley_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A19226A3CCD00DCA73B /* Medley_iOSTests.swift */; };
 		1A628A25226A3CCD00DCA73B /* Medley_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A24226A3CCD00DCA73B /* Medley_iOSUITests.swift */; };
 		1A628A34226A414B00DCA73B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A33226A414B00DCA73B /* Coordinator.swift */; };
 		1A628A36226A41C200DCA73B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A628A35226A41C200DCA73B /* Storyboarded.swift */; };
@@ -39,6 +38,9 @@
 		1A6FC737226E678D00DF1F25 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC736226E678D00DF1F25 /* LoginViewModel.swift */; };
 		1A85066C2278BC2600C40A87 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85066A2278BC2600C40A87 /* TodoTableViewCell.swift */; };
 		1A85066D2278BC2600C40A87 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A85066B2278BC2600C40A87 /* TodoTableViewCell.xib */; };
+		1A8506712278DC7E00C40A87 /* SignupViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8506702278DC7E00C40A87 /* SignupViewModelTests.swift */; };
+		1A8506742278E0C400C40A87 /* TestApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8506732278E0C400C40A87 /* TestApiService.swift */; };
+		1A8506762278E0F000C40A87 /* TestAuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8506752278E0F000C40A87 /* TestAuthCoordinator.swift */; };
 		5B9486F720D64EB7A89EEBB6 /* Pods_Medley_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AB4ACCA14E91FE6A9ED6BD /* Pods_Medley_iOSTests.framework */; };
 		8EBED1442F51A49BE9A21D3A /* Pods_Medley_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */; };
 		FC97EB7EF8A917B30167F597 /* Pods_Medley_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905C393316ACF5ACF4D5A80 /* Pods_Medley_iOSUITests.framework */; };
@@ -73,7 +75,6 @@
 		1A628A0E226A3CCD00DCA73B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A628A10226A3CCD00DCA73B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A628A15226A3CCD00DCA73B /* Medley-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Medley-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A628A19226A3CCD00DCA73B /* Medley_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medley_iOSTests.swift; sourceTree = "<group>"; };
 		1A628A1B226A3CCD00DCA73B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A628A20226A3CCD00DCA73B /* Medley-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Medley-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A628A24226A3CCD00DCA73B /* Medley_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medley_iOSUITests.swift; sourceTree = "<group>"; };
@@ -100,6 +101,9 @@
 		1A6FC736226E678D00DF1F25 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1A85066A2278BC2600C40A87 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		1A85066B2278BC2600C40A87 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
+		1A8506702278DC7E00C40A87 /* SignupViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelTests.swift; sourceTree = "<group>"; };
+		1A8506732278E0C400C40A87 /* TestApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiService.swift; sourceTree = "<group>"; };
+		1A8506752278E0F000C40A87 /* TestAuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAuthCoordinator.swift; sourceTree = "<group>"; };
 		3CA047751E07A6C8A51D0701 /* Pods-Medley-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Medley-iOSUITests/Pods-Medley-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B58EAE18C449A20D41AADDF /* Pods-Medley-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOS.release.xcconfig"; path = "Target Support Files/Pods-Medley-iOS/Pods-Medley-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medley_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,9 +203,10 @@
 		1A628A18226A3CCD00DCA73B /* Medley-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				1A628A19226A3CCD00DCA73B /* Medley_iOSTests.swift */,
+				1A85066E2278DC5900C40A87 /* Service */,
+				1A85066F2278DC6400C40A87 /* ViewModel */,
 				1A628A1B226A3CCD00DCA73B /* Info.plist */,
-				1A43BF7722722FD9005F4D39 /* ApiClientTests.swift */,
+				1A8506722278E0AB00C40A87 /* Mocks */,
 			);
 			path = "Medley-iOSTests";
 			sourceTree = "<group>";
@@ -327,6 +332,31 @@
 				1A6FC736226E678D00DF1F25 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		1A85066E2278DC5900C40A87 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1A43BF7722722FD9005F4D39 /* ApiClientTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1A85066F2278DC6400C40A87 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1A8506702278DC7E00C40A87 /* SignupViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1A8506722278E0AB00C40A87 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1A8506732278E0C400C40A87 /* TestApiService.swift */,
+				1A8506752278E0F000C40A87 /* TestAuthCoordinator.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		EC8D0AC53604DC09640BD026 /* Frameworks */ = {
@@ -494,13 +524,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Medley-iOSTests/Pods-Medley-iOSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -640,8 +678,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8506712278DC7E00C40A87 /* SignupViewModelTests.swift in Sources */,
+				1A8506742278E0C400C40A87 /* TestApiService.swift in Sources */,
+				1A8506762278E0F000C40A87 /* TestAuthCoordinator.swift in Sources */,
 				1A43BF7822722FD9005F4D39 /* ApiClientTests.swift in Sources */,
-				1A628A1A226A3CCD00DCA73B /* Medley_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

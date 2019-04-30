@@ -200,10 +200,22 @@
                                     <constraint firstItem="Eja-V0-Iyg" firstAttribute="width" secondItem="Yui-Pd-8Sc" secondAttribute="width" id="TgJ-CQ-Egu"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOB-VJ-nnI">
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4RS-CK-ZH9"/>
+                                    <constraint firstAttribute="height" constant="100" id="V16-iA-8IY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5eL-Z3-0W2" firstAttribute="top" secondItem="IkW-4c-gVZ" secondAttribute="top" constant="20" id="56w-U6-RRn"/>
+                            <constraint firstItem="BOB-VJ-nnI" firstAttribute="centerY" secondItem="byS-P5-jvw" secondAttribute="centerY" id="8RO-pM-UwN"/>
                             <constraint firstItem="Ekb-17-tAe" firstAttribute="top" secondItem="hJn-73-YKx" secondAttribute="bottom" constant="50" id="Dhm-Jt-y9U"/>
                             <constraint firstItem="IkW-4c-gVZ" firstAttribute="bottom" secondItem="iSj-9h-Yvm" secondAttribute="bottom" constant="20" id="TPD-zR-UuB"/>
                             <constraint firstItem="hJn-73-YKx" firstAttribute="leading" secondItem="IkW-4c-gVZ" secondAttribute="leading" constant="20" id="WMK-8v-GDy"/>
@@ -212,11 +224,13 @@
                             <constraint firstItem="IkW-4c-gVZ" firstAttribute="trailing" secondItem="hJn-73-YKx" secondAttribute="trailing" constant="20" id="bio-ND-aAW"/>
                             <constraint firstItem="hJn-73-YKx" firstAttribute="top" secondItem="5eL-Z3-0W2" secondAttribute="bottom" constant="30" id="cNq-Za-rau"/>
                             <constraint firstItem="Ekb-17-tAe" firstAttribute="centerX" secondItem="byS-P5-jvw" secondAttribute="centerX" id="jeV-F2-1XE"/>
+                            <constraint firstItem="BOB-VJ-nnI" firstAttribute="centerX" secondItem="byS-P5-jvw" secondAttribute="centerX" id="lxS-GG-bh3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IkW-4c-gVZ"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="hRM-st-Ppe" id="ACt-uF-M1v"/>
+                        <outlet property="loadingLabel" destination="BOB-VJ-nnI" id="fh9-7J-odu"/>
                         <outlet property="loginButton" destination="iSj-9h-Yvm" id="4J3-fh-NQX"/>
                         <outlet property="nameTextField" destination="Gbl-Wl-DGe" id="ALt-su-qfY"/>
                         <outlet property="passwordTextField" destination="T5I-fp-gQS" id="qJP-Vf-GMT"/>

@@ -16,8 +16,9 @@ class SignupViewController: UIViewController, SignupView {
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var verifyPasswordTextField: UITextField!
     @IBOutlet private weak var signupButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
-    
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var loadingLabel: UILabel!
+
     var viewModel: SignupVM!
     let disposeBag = DisposeBag()
 
@@ -37,5 +38,6 @@ class SignupViewController: UIViewController, SignupView {
         loginButton.rx.tap.asObservable().subscribe(onNext: viewModel.navigateToLogin).disposed(by: disposeBag)
 
         viewModel.signupEnabled.drive(signupButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.isLoading.map{ !$0 }.drive(loadingLabel.rx.isHidden).disposed(by: disposeBag)
     }
 }
