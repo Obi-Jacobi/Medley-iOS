@@ -7,24 +7,27 @@
 //
 
 import RxSwift
+import RxCocoa
 
-class SignupViewModel {
-    let name: Observable<String>
-    private let nameSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+protocol SignupVM {
+    // Inputs
+    func nameChanged(_ newName: String)
+    func emailChanged(_ newEmail: String)
+    func passwordChanged(_ newPassword: String)
+    func verifyPasswordChanged(_ newVerifyPassword: String)
+    func signup()
+    func navigateToLogin()
 
-    let email: Observable<String>
-    private let emailSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+    // Outputs
+    var signupEnabled: Observable<Bool> { get }
+}
 
-    let password: Observable<String>
-    private let passwordSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+class SignupViewModel: SignupVM {
 
-    let verifyPassword: Observable<String>
-    private let verifyPasswordSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+    let signupEnabled: Observable<Bool>
 
     private let apiService: ApiService
     private weak var coordinator: AuthCoordinatable?
-
-    private let disposeBag = DisposeBag()
 
     init(apiService: ApiService,
          coordinator: AuthCoordinatable) {
@@ -32,35 +35,25 @@ class SignupViewModel {
         self.apiService = apiService
         self.coordinator = coordinator
 
-        self.name = nameSubject.asObservable()
-        self.email = emailSubject.asObservable()
-        self.password = passwordSubject.asObservable()
-        self.verifyPassword = verifyPasswordSubject.asObservable()
-
-        name.subscribe(onNext: {
-            print("New Name Value: \($0)")
-        })
-        .disposed(by: disposeBag)
+        self.signupEnabled = Observable.combineLatest(name, email, password, verifyPassword) { nameValue, emailValue, passwordValue, verifyPasswordValue in
+            return !nameValue.isEmpty && !emailValue.isEmpty && !passwordValue.isEmpty && !verifyPasswordValue.isEmpty
+        }
     }
 
-    func update(name: String,
-                email: String,
-                password: String,
-                verifyPassword: String) {
+    private let name = BehaviorRelay(value: "")
+    func nameChanged(_ newName: String) { name.accept(newName) }
 
-        nameSubject.onNext(name)
-        emailSubject.onNext(email)
-        passwordSubject.onNext(password)
-        verifyPasswordSubject.onNext(verifyPassword)
-    }
+    private let email = BehaviorRelay(value: "")
+    func emailChanged(_ newEmail: String) { email.accept(newEmail) }
+
+    private let password = BehaviorRelay(value: "")
+    func passwordChanged(_ newPassword: String) { password.accept(newPassword) }
+
+    private let verifyPassword = BehaviorRelay(value: "")
+    func verifyPasswordChanged(_ newVerifyPassword: String) { verifyPassword.accept(newVerifyPassword) }
 
     func signup() {
-        let nameValue = (try? nameSubject.value()) ?? ""
-        let emailValue = (try? emailSubject.value()) ?? ""
-        let passwordValue = (try? passwordSubject.value()) ?? ""
-        let verifyPasswordValue = (try? verifyPasswordSubject.value()) ?? ""
-
-        let signupRequest = SignupRequest(name: nameValue, email: emailValue, password: passwordValue, verifyPassword: verifyPasswordValue)
+        let signupRequest = SignupRequest(name: name.value, email: email.value, password: password.value, verifyPassword: verifyPassword.value)
 
         try? apiService.signup(request: signupRequest) { result in
             switch result {

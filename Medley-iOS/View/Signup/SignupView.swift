@@ -9,5 +9,5 @@
 import UIKit
 
 protocol SignupView: UIViewController, Storyboarded {
-    var viewModel: SignupViewModel! { get }
+    var viewModel: SignupVM! { get }
 }

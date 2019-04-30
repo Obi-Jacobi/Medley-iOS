@@ -7,19 +7,25 @@
 //
 
 import RxSwift
+import RxCocoa
 
-class LoginViewModel {
+protocol LoginVM {
+    // Inputs
+    func emailChanged(_ newEmail: String)
+    func passwordChanged(_ newPassword: String)
+    func login()
+    func navigateToSignup()
 
-    let email: Observable<String>
-    private let emailSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+    // Outputs
+    var loginEnabled: Observable<Bool> { get }
+}
 
-    let password: Observable<String>
-    private let passwordSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+class LoginViewModel: LoginVM {
+
+    let loginEnabled: Observable<Bool>
 
     private let apiService: ApiService
     private weak var coordinator: AuthCoordinatable?
-
-    private let disposeBag = DisposeBag()
 
     init(apiService: ApiService,
          coordinator: AuthCoordinatable) {
@@ -27,22 +33,19 @@ class LoginViewModel {
         self.apiService = apiService
         self.coordinator = coordinator
 
-        self.email = emailSubject.asObservable()
-        self.password = passwordSubject.asObservable()
+        self.loginEnabled = Observable.combineLatest(email, password) { emailValue, passwordValue in
+            return !emailValue.isEmpty && !passwordValue.isEmpty
+        }
     }
 
-    func update(email: String,
-                password: String) {
+    private let email = BehaviorRelay(value: "")
+    func emailChanged(_ newEmail: String) { email.accept(newEmail) }
 
-        emailSubject.onNext(email)
-        passwordSubject.onNext(password)
-    }
+    private let password = BehaviorRelay(value: "")
+    func passwordChanged(_ newPassword: String) { password.accept(newPassword) }
 
     func login() {
-        let emailValue = (try? emailSubject.value()) ?? ""
-        let passwordValue = (try? passwordSubject.value()) ?? ""
-
-        let loginRequest = LoginRequest(email: emailValue, password: passwordValue)
+        let loginRequest = LoginRequest(email: email.value, password: password.value)
 
         try? apiService.login(request: loginRequest) { result in
             switch result {

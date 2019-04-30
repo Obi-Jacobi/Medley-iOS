@@ -9,5 +9,5 @@
 import UIKit
 
 protocol SignupSuccessView: UIViewController, Storyboarded {
-    var viewModel: SignupSuccessViewModel! { get }
+    var viewModel: SignupSuccessVM! { get }
 }

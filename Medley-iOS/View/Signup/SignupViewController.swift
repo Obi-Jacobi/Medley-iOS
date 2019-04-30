@@ -15,9 +15,10 @@ class SignupViewController: UIViewController, SignupView {
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var verifyPasswordTextField: UITextField!
+    @IBOutlet private weak var signupButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
-    var viewModel: SignupViewModel!
-
+    var viewModel: SignupVM!
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -27,35 +28,14 @@ class SignupViewController: UIViewController, SignupView {
     }
 
     private func setupBindings() {
-        viewModel.name
-            .bind(to: nameTextField.rx.text)
-            .disposed(by: disposeBag)
+        nameTextField.rx.text.orEmpty.subscribe(onNext: viewModel.nameChanged).disposed(by: disposeBag)
+        emailTextField.rx.text.orEmpty.subscribe(onNext: viewModel.emailChanged).disposed(by: disposeBag)
+        passwordTextField.rx.text.orEmpty.subscribe(onNext: viewModel.passwordChanged).disposed(by: disposeBag)
+        verifyPasswordTextField.rx.text.orEmpty.subscribe(onNext: viewModel.verifyPasswordChanged).disposed(by: disposeBag)
 
-        viewModel.email
-            .bind(to: emailTextField.rx.text)
-            .disposed(by: disposeBag)
+        signupButton.rx.tap.asObservable().subscribe(onNext: viewModel.signup).disposed(by: disposeBag)
+        loginButton.rx.tap.asObservable().subscribe(onNext: viewModel.navigateToLogin).disposed(by: disposeBag)
 
-        viewModel.password
-            .bind(to: passwordTextField.rx.text)
-            .disposed(by: disposeBag)
-
-        viewModel.verifyPassword
-            .bind(to: verifyPasswordTextField.rx.text)
-            .disposed(by: disposeBag)
-    }
-    
-    @IBAction func loginButton(_ sender: UIButton) {
-        viewModel.navigateToLogin()
-    }
-
-    @IBAction func signupButton(_ sender: Any) {
-        let name = nameTextField.text ?? ""
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        let verifyPassword = verifyPasswordTextField.text ?? ""
-
-        viewModel.update(name: name, email: email, password: password, verifyPassword: verifyPassword)
-
-        viewModel.signup()
+        viewModel.signupEnabled.bind(to: signupButton.rx.isEnabled).disposed(by: disposeBag)
     }
 }

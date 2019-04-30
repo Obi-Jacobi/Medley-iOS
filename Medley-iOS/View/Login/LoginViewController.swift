@@ -13,9 +13,10 @@ import RxCocoa
 class LoginViewController: UIViewController, LoginView {
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var signupButton: UIButton!
 
-    var viewModel: LoginViewModel!
-
+    var viewModel: LoginVM!
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -25,28 +26,13 @@ class LoginViewController: UIViewController, LoginView {
     }
 
     private func setupBindings() {
+        emailTextField.rx.text.orEmpty.subscribe(onNext: viewModel.emailChanged).disposed(by: disposeBag)
+        passwordTextField.rx.text.orEmpty.subscribe(onNext: viewModel.passwordChanged).disposed(by: disposeBag)
 
-        viewModel.email
-            .bind(to: emailTextField.rx.text)
-            .disposed(by: disposeBag)
+        loginButton.rx.tap.asObservable().subscribe(onNext: viewModel.login).disposed(by: disposeBag)
+        signupButton.rx.tap.asObservable().subscribe(onNext: viewModel.navigateToSignup).disposed(by: disposeBag)
 
-        viewModel.password
-            .bind(to: passwordTextField.rx.text)
-            .disposed(by: disposeBag)
+        viewModel.loginEnabled.bind(to: loginButton.rx.isEnabled).disposed(by: disposeBag)
     }
-
-    @IBAction func loginButton(_ sender: UIButton) {
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-
-        viewModel.update(email: email, password: password)
-
-        viewModel.login()
-    }
-
-    @IBAction func signupButton(_ sender: UIButton) {
-        viewModel.navigateToSignup()
-    }
-    
 }
 

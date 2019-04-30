@@ -10,20 +10,20 @@ import Swinject
 
 class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(SignupViewModel.self) { r in
+        container.register(SignupVM.self) { r in
             let apiService = r.resolve(ApiService.self)!
             let coordinator = r.resolve(AuthCoordinatable.self, argument: UINavigationController())!
 
             return SignupViewModel(apiService: apiService, coordinator: coordinator)
         }.inObjectScope(.transient)
 
-        container.register(SignupSuccessViewModel.self) { r in
+        container.register(SignupSuccessVM.self) { r in
             let coordinator = r.resolve(AuthCoordinatable.self, argument: UINavigationController())!
 
             return SignupSuccessViewModel(coordinator: coordinator)
         }.inObjectScope(.transient)
 
-        container.register(LoginViewModel.self) { r in
+        container.register(LoginVM.self) { r in
             let apiService = r.resolve(ApiService.self)!
             let coordinator = r.resolve(AuthCoordinatable.self, argument: UINavigationController())!
 

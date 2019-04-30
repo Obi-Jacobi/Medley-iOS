@@ -27,16 +27,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQl-Oe-RJ2">
                                 <rect key="frame" x="149" y="812" width="116" height="30"/>
                                 <state key="normal" title="Need to sign up?"/>
-                                <connections>
-                                    <action selector="signupButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eIH-0v-kgr"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQK-Z8-CST">
                                 <rect key="frame" x="188" y="244.5" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dK1-h0-mVw"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IZF-wd-8rL">
                                 <rect key="frame" x="20" y="114.5" width="374" height="80"/>
@@ -97,7 +91,9 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="O2i-4y-JzX" id="quO-Ei-Rs4"/>
+                        <outlet property="loginButton" destination="oQK-Z8-CST" id="EuJ-SV-5g7"/>
                         <outlet property="passwordTextField" destination="xsW-FO-4we" id="7bK-wk-iZF"/>
+                        <outlet property="signupButton" destination="ZQl-Oe-RJ2" id="gqZ-4e-SO6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,9 +111,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSj-9h-Yvm">
                                 <rect key="frame" x="162.5" y="812" width="89" height="30"/>
                                 <state key="normal" title="Back to login"/>
-                                <connections>
-                                    <action selector="loginButton:" destination="eml-XM-ewv" eventType="touchUpInside" id="STC-f0-Rtp"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eL-Z3-0W2">
                                 <rect key="frame" x="180.5" y="64" width="53.5" height="20.5"/>
@@ -128,9 +121,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekb-17-tAe">
                                 <rect key="frame" x="183" y="344.5" width="48" height="30"/>
                                 <state key="normal" title="Signup"/>
-                                <connections>
-                                    <action selector="signupButton:" destination="eml-XM-ewv" eventType="touchUpInside" id="DQn-Ou-6Kt"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hJn-73-YKx">
                                 <rect key="frame" x="20" y="114.5" width="374" height="180"/>
@@ -227,8 +217,10 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="hRM-st-Ppe" id="ACt-uF-M1v"/>
+                        <outlet property="loginButton" destination="iSj-9h-Yvm" id="4J3-fh-NQX"/>
                         <outlet property="nameTextField" destination="Gbl-Wl-DGe" id="ALt-su-qfY"/>
                         <outlet property="passwordTextField" destination="T5I-fp-gQS" id="qJP-Vf-GMT"/>
+                        <outlet property="signupButton" destination="Ekb-17-tAe" id="bIH-rd-0Oo"/>
                         <outlet property="verifyPasswordTextField" destination="3rx-F9-hQe" id="gmk-Ie-SbA"/>
                     </connections>
                 </viewController>
@@ -253,9 +245,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D49-kN-mp6">
                                 <rect key="frame" x="157.5" y="145" width="99" height="30"/>
                                 <state key="normal" title="Now go Login!"/>
-                                <connections>
-                                    <action selector="loginButton:" destination="NA5-10-Mic" eventType="touchUpInside" id="CfL-ff-EfM"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,6 +256,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="laE-zo-C5C"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="D49-kN-mp6" id="baQ-l4-Nrx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDd-uD-Ahj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
