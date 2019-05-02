@@ -6,12 +6,15 @@
 //  Copyright © 2019 Jacob Wilson. All rights reserved.
 //
 
-class SignupSuccessViewModel {
+protocol SignupSuccessVM {
+    func navigateToLogin()
+}
+
+class SignupSuccessViewModel: SignupSuccessVM {
 
     private weak var coordinator: AuthCoordinatable?
 
     init(coordinator: AuthCoordinatable) {
-
         self.coordinator = coordinator
     }
 

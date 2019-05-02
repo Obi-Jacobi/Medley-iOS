@@ -32,25 +32,21 @@ class APIRequest {
     var headers: [HTTPHeader]?
     var body: Data?
 
-    init(method: HTTPMethod, path: String) throws {
+    init(method: HTTPMethod, path: String, authToken: String) throws {
         self.method = method
         self.path = path
 
-        let defaults = UserDefaults.standard
-        let authToken = defaults.string(forKey: "authToken")
-        let authValue = "Bearer \(authToken!)"
+        let authValue = "Bearer \(authToken)"
         self.headers = [HTTPHeader(field: "Authorization", value: authValue)]
     }
 
-    init<Body: Encodable>(authed method: HTTPMethod, path: String, body: Body) throws {
+    init<Body: Encodable>(authed method: HTTPMethod, path: String, body: Body, authToken: String) throws {
         self.method = method
         self.path = path
 
         self.body = try JSONEncoder().encode(body)
 
-        let defaults = UserDefaults.standard
-        let authToken = defaults.string(forKey: "authToken")
-        let authValue = "Bearer \(authToken!)"
+        let authValue = "Bearer \(authToken)"
         self.headers = [HTTPHeader(field: "Authorization", value: authValue),
                         HTTPHeader(field: "Content-Type", value: "application/json")]
     }
@@ -76,6 +72,12 @@ class APIRequest {
 
 struct ApiClient: ApiService {
 
+    private let authService: AuthService
+
+    init(authService: AuthService) {
+        self.authService = authService
+    }
+
     private let baseURL = URL(string: "http://localhost:8080")
 
     func signup(request signupRequest: SignupRequest, _ completion: @escaping (Result<SignupResponse, Error>) -> Void) throws {
@@ -97,7 +99,12 @@ struct ApiClient: ApiService {
     }
 
     func getAllTodos(_ completion: @escaping (Result<[Todo], Error>) -> Void) throws {
-        let apiRequest = try APIRequest(method: HTTPMethod.get, path: "todos")
+        guard let authToken = authService.authToken else {
+            // TODO: Make this complete with a valid error
+            return
+        }
+
+        let apiRequest = try APIRequest(method: HTTPMethod.get, path: "todos", authToken: authToken)
         let request = urlRequest(from: apiRequest)!
 
         AF.request(request).responseDecodable { (response: DataResponse<[Todo]>) in
@@ -106,7 +113,12 @@ struct ApiClient: ApiService {
     }
 
     func makeTodo(request todoRequest: TodoRequest, _ completion: @escaping (Result<Todo, Error>) -> Void) throws {
-        let apiRequest = try APIRequest(authed: HTTPMethod.post, path: "todos", body: todoRequest)
+        guard let authToken = authService.authToken else {
+            // TODO: Make this complete with a valid error
+            return
+        }
+
+        let apiRequest = try APIRequest(authed: HTTPMethod.post, path: "todos", body: todoRequest, authToken: authToken)
         let request = urlRequest(from: apiRequest)!
 
         AF.request(request).responseDecodable { (response: DataResponse<Todo>) in

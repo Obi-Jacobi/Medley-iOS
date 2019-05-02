@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Swinject
 
 protocol AuthCoordinatable: Coordinator {
     var parentCoordinator: MainCoordinatable? { get set }
@@ -20,15 +19,25 @@ protocol AuthCoordinatable: Coordinator {
 
 class AuthCoordinator: AuthCoordinatable {
 
-    var resolver: Resolver
+    typealias LoginViewFactory = () -> LoginView
+    typealias SignupViewFactory = () -> SignupView
+    typealias SignupSuccessViewFactory = () -> SignupSuccessView
+
     var navigationController: UINavigationController
+    var loginView: LoginViewFactory
+    var signupView: SignupViewFactory
+    var signupSuccessView: SignupSuccessViewFactory
     weak var parentCoordinator: MainCoordinatable?
 
-    init(resolver: Resolver,
-         navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,
+         loginView: @escaping LoginViewFactory,
+         signupView: @escaping SignupViewFactory,
+         signupSuccessView: @escaping SignupSuccessViewFactory) {
 
-        self.resolver = resolver
         self.navigationController = navigationController
+        self.loginView = loginView
+        self.signupView = signupView
+        self.signupSuccessView = signupSuccessView
     }
 
     func start() {
@@ -38,19 +47,19 @@ class AuthCoordinator: AuthCoordinatable {
     }
 
     func login() {
-        let view = resolver.resolve(LoginView.self)!
+        let view = loginView()
 
         navigationController.setViewControllers([view], animated: true)
     }
 
     func signup() {
-        let view = resolver.resolve(SignupView.self)!
+        let view = signupView()
 
         navigationController.setViewControllers([view], animated: true)
     }
 
     func successfulSignup() {
-        let view = resolver.resolve(SignupSuccessView.self)!
+        let view = signupSuccessView()
 
         navigationController.setViewControllers([view], animated: true)
     }

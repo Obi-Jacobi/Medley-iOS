@@ -27,16 +27,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQl-Oe-RJ2">
                                 <rect key="frame" x="149" y="812" width="116" height="30"/>
                                 <state key="normal" title="Need to sign up?"/>
-                                <connections>
-                                    <action selector="signupButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eIH-0v-kgr"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQK-Z8-CST">
                                 <rect key="frame" x="188" y="244.5" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dK1-h0-mVw"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IZF-wd-8rL">
                                 <rect key="frame" x="20" y="114.5" width="374" height="80"/>
@@ -97,7 +91,9 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="O2i-4y-JzX" id="quO-Ei-Rs4"/>
+                        <outlet property="loginButton" destination="oQK-Z8-CST" id="EuJ-SV-5g7"/>
                         <outlet property="passwordTextField" destination="xsW-FO-4we" id="7bK-wk-iZF"/>
+                        <outlet property="signupButton" destination="ZQl-Oe-RJ2" id="gqZ-4e-SO6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,9 +111,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSj-9h-Yvm">
                                 <rect key="frame" x="162.5" y="812" width="89" height="30"/>
                                 <state key="normal" title="Back to login"/>
-                                <connections>
-                                    <action selector="loginButton:" destination="eml-XM-ewv" eventType="touchUpInside" id="STC-f0-Rtp"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eL-Z3-0W2">
                                 <rect key="frame" x="180.5" y="64" width="53.5" height="20.5"/>
@@ -128,9 +121,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekb-17-tAe">
                                 <rect key="frame" x="183" y="344.5" width="48" height="30"/>
                                 <state key="normal" title="Signup"/>
-                                <connections>
-                                    <action selector="signupButton:" destination="eml-XM-ewv" eventType="touchUpInside" id="DQn-Ou-6Kt"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hJn-73-YKx">
                                 <rect key="frame" x="20" y="114.5" width="374" height="180"/>
@@ -210,10 +200,22 @@
                                     <constraint firstItem="Eja-V0-Iyg" firstAttribute="width" secondItem="Yui-Pd-8Sc" secondAttribute="width" id="TgJ-CQ-Egu"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOB-VJ-nnI">
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4RS-CK-ZH9"/>
+                                    <constraint firstAttribute="height" constant="100" id="V16-iA-8IY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5eL-Z3-0W2" firstAttribute="top" secondItem="IkW-4c-gVZ" secondAttribute="top" constant="20" id="56w-U6-RRn"/>
+                            <constraint firstItem="BOB-VJ-nnI" firstAttribute="centerY" secondItem="byS-P5-jvw" secondAttribute="centerY" id="8RO-pM-UwN"/>
                             <constraint firstItem="Ekb-17-tAe" firstAttribute="top" secondItem="hJn-73-YKx" secondAttribute="bottom" constant="50" id="Dhm-Jt-y9U"/>
                             <constraint firstItem="IkW-4c-gVZ" firstAttribute="bottom" secondItem="iSj-9h-Yvm" secondAttribute="bottom" constant="20" id="TPD-zR-UuB"/>
                             <constraint firstItem="hJn-73-YKx" firstAttribute="leading" secondItem="IkW-4c-gVZ" secondAttribute="leading" constant="20" id="WMK-8v-GDy"/>
@@ -222,13 +224,17 @@
                             <constraint firstItem="IkW-4c-gVZ" firstAttribute="trailing" secondItem="hJn-73-YKx" secondAttribute="trailing" constant="20" id="bio-ND-aAW"/>
                             <constraint firstItem="hJn-73-YKx" firstAttribute="top" secondItem="5eL-Z3-0W2" secondAttribute="bottom" constant="30" id="cNq-Za-rau"/>
                             <constraint firstItem="Ekb-17-tAe" firstAttribute="centerX" secondItem="byS-P5-jvw" secondAttribute="centerX" id="jeV-F2-1XE"/>
+                            <constraint firstItem="BOB-VJ-nnI" firstAttribute="centerX" secondItem="byS-P5-jvw" secondAttribute="centerX" id="lxS-GG-bh3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IkW-4c-gVZ"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="hRM-st-Ppe" id="ACt-uF-M1v"/>
+                        <outlet property="loadingLabel" destination="BOB-VJ-nnI" id="fh9-7J-odu"/>
+                        <outlet property="loginButton" destination="iSj-9h-Yvm" id="4J3-fh-NQX"/>
                         <outlet property="nameTextField" destination="Gbl-Wl-DGe" id="ALt-su-qfY"/>
                         <outlet property="passwordTextField" destination="T5I-fp-gQS" id="qJP-Vf-GMT"/>
+                        <outlet property="signupButton" destination="Ekb-17-tAe" id="bIH-rd-0Oo"/>
                         <outlet property="verifyPasswordTextField" destination="3rx-F9-hQe" id="gmk-Ie-SbA"/>
                     </connections>
                 </viewController>
@@ -253,9 +259,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D49-kN-mp6">
                                 <rect key="frame" x="157.5" y="145" width="99" height="30"/>
                                 <state key="normal" title="Now go Login!"/>
-                                <connections>
-                                    <action selector="loginButton:" destination="NA5-10-Mic" eventType="touchUpInside" id="CfL-ff-EfM"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,12 +270,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="laE-zo-C5C"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="D49-kN-mp6" id="baQ-l4-Nrx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDd-uD-Ahj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1027.536231884058" y="83.705357142857139"/>
         </scene>
-        <!--Todo View Controller-->
+        <!--Todos-->
         <scene sceneID="ZCm-Am-oXp">
             <objects>
                 <viewController storyboardIdentifier="TodoViewController" id="FNp-Jm-tDb" customClass="TodoViewController" customModule="Medley_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -280,42 +286,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQV-Ow-OaF">
-                                <rect key="frame" x="183.5" y="74" width="47" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLF-jq-82I">
-                                <rect key="frame" x="169.5" y="433" width="75" height="30"/>
-                                <state key="normal" title="Make Todo"/>
-                                <connections>
-                                    <action selector="makeTodo:" destination="FNp-Jm-tDb" eventType="touchUpInside" id="LJl-px-g88"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7S-sH-PjT">
-                                <rect key="frame" x="171.5" y="395" width="71" height="30"/>
-                                <state key="normal" title="Get Todos"/>
-                                <connections>
-                                    <action selector="getTodos:" destination="FNp-Jm-tDb" eventType="touchUpInside" id="KGo-2W-7kS"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IUp-NJ-FOZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xLF-jq-82I" firstAttribute="centerX" secondItem="lnH-4X-qLM" secondAttribute="centerX" id="5i4-k6-yXy"/>
-                            <constraint firstItem="CQV-Ow-OaF" firstAttribute="top" secondItem="Jge-Yg-9Vi" secondAttribute="top" constant="30" id="D9w-Iz-uq6"/>
-                            <constraint firstItem="xLF-jq-82I" firstAttribute="centerY" secondItem="lnH-4X-qLM" secondAttribute="centerY" id="KMc-Iq-jDL"/>
-                            <constraint firstItem="xLF-jq-82I" firstAttribute="top" secondItem="R7S-sH-PjT" secondAttribute="bottom" constant="8" id="bI1-tg-szb"/>
-                            <constraint firstItem="R7S-sH-PjT" firstAttribute="centerX" secondItem="lnH-4X-qLM" secondAttribute="centerX" id="heC-mb-waU"/>
-                            <constraint firstItem="CQV-Ow-OaF" firstAttribute="centerX" secondItem="lnH-4X-qLM" secondAttribute="centerX" id="jkP-nw-cCz"/>
+                            <constraint firstItem="Jge-Yg-9Vi" firstAttribute="bottom" secondItem="IUp-NJ-FOZ" secondAttribute="bottom" id="Dka-da-JaW"/>
+                            <constraint firstItem="IUp-NJ-FOZ" firstAttribute="leading" secondItem="Jge-Yg-9Vi" secondAttribute="leading" id="WeT-g3-NhI"/>
+                            <constraint firstItem="Jge-Yg-9Vi" firstAttribute="trailing" secondItem="IUp-NJ-FOZ" secondAttribute="trailing" id="iMa-xC-Jtx"/>
+                            <constraint firstItem="IUp-NJ-FOZ" firstAttribute="top" secondItem="Jge-Yg-9Vi" secondAttribute="top" id="zaz-2Q-OuQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jge-Yg-9Vi"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Todos" id="rdc-MA-79Q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PjA-oU-4Ig"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="makeTodoBarButton" destination="PjA-oU-4Ig" id="tz6-k2-c8j"/>
+                        <outlet property="tableView" destination="IUp-NJ-FOZ" id="fCk-ck-esB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lE9-52-Dqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="86"/>
+            <point key="canvasLocation" x="2421.739130434783" y="85.714285714285708"/>
         </scene>
     </scenes>
 </document>

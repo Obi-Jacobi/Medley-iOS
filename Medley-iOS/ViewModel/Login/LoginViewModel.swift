@@ -7,55 +7,65 @@
 //
 
 import RxSwift
+import RxCocoa
 
-class LoginViewModel {
+protocol LoginVM {
+    // Inputs
+    func emailChanged(_ newEmail: String)
+    func passwordChanged(_ newPassword: String)
+    func login()
+    func navigateToSignup()
 
-    let email: Observable<String>
-    private let emailSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+    // Outputs
+    var isLoading: Driver<Bool> { get }
+    var loginEnabled: Driver<Bool> { get }
+}
 
-    let password: Observable<String>
-    private let passwordSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+class LoginViewModel: LoginVM {
+
+    let isLoading: Driver<Bool>
+    let loginEnabled: Driver<Bool>
 
     private let apiService: ApiService
+    private var authService: AuthService
     private weak var coordinator: AuthCoordinatable?
 
-    private let disposeBag = DisposeBag()
-
     init(apiService: ApiService,
+         authService: AuthService,
          coordinator: AuthCoordinatable) {
 
         self.apiService = apiService
+        self.authService = authService
         self.coordinator = coordinator
 
-        self.email = emailSubject.asObservable()
-        self.password = passwordSubject.asObservable()
+        self.loginEnabled = Observable.combineLatest(email, password) { emailValue, passwordValue in
+            return !emailValue.isEmpty && !passwordValue.isEmpty
+        }.asDriver(onErrorJustReturn: false)
+
+        self.isLoading = loginLoading.asDriver(onErrorJustReturn: false)
     }
 
-    func update(email: String,
-                password: String) {
+    private let email = BehaviorRelay(value: "")
+    func emailChanged(_ newEmail: String) { email.accept(newEmail) }
 
-        emailSubject.onNext(email)
-        passwordSubject.onNext(password)
-    }
+    private let password = BehaviorRelay(value: "")
+    func passwordChanged(_ newPassword: String) { password.accept(newPassword) }
 
+    private let loginLoading = BehaviorRelay(value: false)
     func login() {
-        let emailValue = (try? emailSubject.value()) ?? ""
-        let passwordValue = (try? passwordSubject.value()) ?? ""
+        let loginRequest = LoginRequest(email: email.value, password: password.value)
 
-        let loginRequest = LoginRequest(email: emailValue, password: passwordValue)
-
+        loginLoading.accept(true)
         try? apiService.login(request: loginRequest) { result in
             switch result {
             case .success(let response):
-                let defaults = UserDefaults.standard
-                defaults.set(response.string, forKey: "authToken")
+                self.authService.authToken = response.string
 
-                DispatchQueue.main.async {
-                    self.coordinator?.successfulLogin()
-                }
+                self.coordinator?.successfulLogin()
             case .failure(let error):
                 print("Error performing login request \(error)")
             }
+            self.loginLoading.accept(false)
         }
     }
 

@@ -9,5 +9,5 @@
 import UIKit
 
 protocol LoginView: UIViewController, Storyboarded {
-    var viewModel: LoginViewModel! { get }
+    var viewModel: LoginVM! { get }
 }

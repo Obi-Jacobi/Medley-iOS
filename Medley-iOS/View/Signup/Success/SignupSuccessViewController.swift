@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SignupSuccessViewController: UIViewController, SignupSuccessView {
-    var viewModel: SignupSuccessViewModel!
+    @IBOutlet private weak var loginButton: UIButton!
+    
+    var viewModel: SignupSuccessVM!
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func loginButton(_ sender: UIButton) {
-        viewModel.navigateToLogin()
+        loginButton.rx.tap.asObservable().subscribe(onNext: viewModel.navigateToLogin).disposed(by: disposeBag)
     }
 }

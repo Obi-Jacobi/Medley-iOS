@@ -8,11 +8,15 @@ use_frameworks!
 
 workspace 'Medley-iOS'
 
+def shared_pods
+    pod 'RxSwift', '~> 4.0'
+    pod 'RxCocoa', '~> 4.0'
+end
+
 target 'Medley-iOS' do
   # Pods for Medley-iOS
 
-  pod 'RxSwift', '~> 4.0'
-  pod 'RxCocoa', '~> 4.0'
+  shared_pods
 
   pod 'Alamofire', '~> 5.0.0-beta.6'
 
@@ -20,10 +24,13 @@ target 'Medley-iOS' do
 end
 
 target 'Medley-iOSTests' do
+    shared_pods
     inherit! :search_paths
     # Pods for testing
 
     pod 'OHHTTPStubs/Swift'
+    pod 'RxTest'
+    pod 'RxBlocking'
 end
 
 target 'Medley-iOSUITests' do

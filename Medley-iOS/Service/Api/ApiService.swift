@@ -40,6 +40,7 @@ struct Todo: Codable {
     let title: String
     let userID: Int
 }
+extension Todo: Equatable { }
 
 struct TodoRequest: Codable {
     let title: String

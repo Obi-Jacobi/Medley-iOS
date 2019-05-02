@@ -9,5 +9,5 @@
 import UIKit
 
 protocol TodoView: UIViewController, Storyboarded {
-    var viewModel: TodoViewModel! { get }
+    var viewModel: TodoVM! { get }
 }
