@@ -9,6 +9,8 @@
 import UIKit
 
 protocol MainCoordinatable: Coordinator {
+    var authService: AuthService { get }
+
     var authCoordinator: AuthCoordinatable { get }
     var todoCoordinator: TodoCoordinatable { get }
 
@@ -18,14 +20,18 @@ protocol MainCoordinatable: Coordinator {
 class MainCoordinator: MainCoordinatable {
 
     var navigationController: UINavigationController
+    var authService: AuthService
     var authCoordinator: AuthCoordinatable
     var todoCoordinator: TodoCoordinatable
 
     init(navigationController: UINavigationController,
+         authService: AuthService,
          authCoordinator: AuthCoordinatable,
          todoCoordinator: TodoCoordinatable) {
 
         self.navigationController = navigationController
+        self.authService = authService
+
         self.authCoordinator = authCoordinator
         self.todoCoordinator = todoCoordinator
 
@@ -34,11 +40,7 @@ class MainCoordinator: MainCoordinatable {
     }
 
     func start() {
-//        authCoordinator.start()
-        let defaults = UserDefaults.standard
-        let authToken = defaults.string(forKey: "authToken")
-
-        guard authToken != nil else {
+        guard authService.authToken != nil else {
             authCoordinator.start()
             return
         }

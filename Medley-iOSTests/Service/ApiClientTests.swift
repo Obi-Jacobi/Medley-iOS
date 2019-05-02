@@ -16,6 +16,8 @@ class ApiClientTests: XCTestCase {
         case badResponse
     }
 
+    var testAuthService: TestAuthService!
+
     var client: ApiClient!
 
     let host = "localhost"
@@ -23,13 +25,16 @@ class ApiClientTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        client = ApiClient()
+        testAuthService = TestAuthService()
+
+        client = ApiClient(authService: testAuthService)
     }
 
     override func tearDown() {
         super.tearDown()
 
         client = nil
+        testAuthService = nil
         OHHTTPStubs.removeAllStubs()
     }
 
@@ -135,6 +140,7 @@ class ApiClientTests: XCTestCase {
 
     func testThat_client_all_todos_response_is_valid() {
         let testExpecation = expectation(description: #function)
+        testAuthService.authToken = "authToken"
 
         stub(condition: isScheme("http") && isHost(host) && isPath("/todos")) { thing in
             let response = [Todo(id: 1, title: "title", userID: 1)]
@@ -160,6 +166,7 @@ class ApiClientTests: XCTestCase {
 
     func testThat_client_returns_error_when_bad_network_response_for_all_todos() {
         let testExpecation = expectation(description: #function)
+        testAuthService.authToken = "authToken"
 
         stub(condition: isScheme("http") && isHost(host) && isPath("/todos")) { thing in
             return OHHTTPStubsResponse(error: TestError.badResponse)
@@ -181,6 +188,7 @@ class ApiClientTests: XCTestCase {
 
     func testThat_client_make_todo_response_is_valid() {
         let testExpecation = expectation(description: #function)
+        testAuthService.authToken = "authToken"
 
         stub(condition: isScheme("http") && isHost(host) && isPath("/todos")) { thing in
             let response = Todo(id: 1, title: "title", userID: 1)
@@ -208,6 +216,7 @@ class ApiClientTests: XCTestCase {
 
     func testThat_client_returns_error_when_bad_network_response_for_make_todo() {
         let testExpecation = expectation(description: #function)
+        testAuthService.authToken = "authToken"
 
         stub(condition: isScheme("http") && isHost(host) && isPath("/todos")) { thing in
             return OHHTTPStubsResponse(error: TestError.badResponse)

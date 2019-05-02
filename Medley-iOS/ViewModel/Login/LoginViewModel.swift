@@ -17,25 +17,32 @@ protocol LoginVM {
     func navigateToSignup()
 
     // Outputs
+    var isLoading: Driver<Bool> { get }
     var loginEnabled: Driver<Bool> { get }
 }
 
 class LoginViewModel: LoginVM {
 
+    let isLoading: Driver<Bool>
     let loginEnabled: Driver<Bool>
 
     private let apiService: ApiService
+    private var authService: AuthService
     private weak var coordinator: AuthCoordinatable?
 
     init(apiService: ApiService,
+         authService: AuthService,
          coordinator: AuthCoordinatable) {
 
         self.apiService = apiService
+        self.authService = authService
         self.coordinator = coordinator
 
         self.loginEnabled = Observable.combineLatest(email, password) { emailValue, passwordValue in
             return !emailValue.isEmpty && !passwordValue.isEmpty
         }.asDriver(onErrorJustReturn: false)
+
+        self.isLoading = loginLoading.asDriver(onErrorJustReturn: false)
     }
 
     private let email = BehaviorRelay(value: "")
@@ -44,21 +51,21 @@ class LoginViewModel: LoginVM {
     private let password = BehaviorRelay(value: "")
     func passwordChanged(_ newPassword: String) { password.accept(newPassword) }
 
+    private let loginLoading = BehaviorRelay(value: false)
     func login() {
         let loginRequest = LoginRequest(email: email.value, password: password.value)
 
+        loginLoading.accept(true)
         try? apiService.login(request: loginRequest) { result in
             switch result {
             case .success(let response):
-                let defaults = UserDefaults.standard
-                defaults.set(response.string, forKey: "authToken")
+                self.authService.authToken = response.string
 
-                DispatchQueue.main.async {
-                    self.coordinator?.successfulLogin()
-                }
+                self.coordinator?.successfulLogin()
             case .failure(let error):
                 print("Error performing login request \(error)")
             }
+            self.loginLoading.accept(false)
         }
     }
 

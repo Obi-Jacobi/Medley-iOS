@@ -41,6 +41,18 @@
 		1A8506712278DC7E00C40A87 /* SignupViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8506702278DC7E00C40A87 /* SignupViewModelTests.swift */; };
 		1A8506742278E0C400C40A87 /* TestApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8506732278E0C400C40A87 /* TestApiService.swift */; };
 		1A8506762278E0F000C40A87 /* TestAuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8506752278E0F000C40A87 /* TestAuthCoordinator.swift */; };
+		1ABB5ACB227B3DFB00799E09 /* SignupSuccessViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5ACA227B3DFB00799E09 /* SignupSuccessViewModelTests.swift */; };
+		1ABB5ACF227B3EB800799E09 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5ACE227B3EB800799E09 /* LoginViewModelTests.swift */; };
+		1ABB5AD2227B41B700799E09 /* TodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5AD1227B41B700799E09 /* TodoViewModelTests.swift */; };
+		1ABB5AD4227B430B00799E09 /* TestTodoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5AD3227B430B00799E09 /* TestTodoCoordinator.swift */; };
+		1ABB5AD8227B4A2500799E09 /* MainCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5AD7227B4A2500799E09 /* MainCoordinatorTests.swift */; };
+		1ABB5ADB227B5AAC00799E09 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5ADA227B5AAC00799E09 /* AuthService.swift */; };
+		1ABB5D27227B5E2F00799E09 /* TestAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5D26227B5E2F00799E09 /* TestAuthService.swift */; };
+		1ABB5D29227B635E00799E09 /* AuthCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5D28227B635E00799E09 /* AuthCoordinatorTests.swift */; };
+		1ABB5D2B227B63C600799E09 /* TestViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5D2A227B63C600799E09 /* TestViews.swift */; };
+		1ABB5D2D227B64D500799E09 /* TestViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5D2C227B64D500799E09 /* TestViewModels.swift */; };
+		1ABB5D33227B717D00799E09 /* TestMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5D32227B717D00799E09 /* TestMainCoordinator.swift */; };
+		1ABB5D35227B725A00799E09 /* TodoCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB5D34227B725A00799E09 /* TodoCoordinatorTests.swift */; };
 		5B9486F720D64EB7A89EEBB6 /* Pods_Medley_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AB4ACCA14E91FE6A9ED6BD /* Pods_Medley_iOSTests.framework */; };
 		8EBED1442F51A49BE9A21D3A /* Pods_Medley_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */; };
 		FC97EB7EF8A917B30167F597 /* Pods_Medley_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905C393316ACF5ACF4D5A80 /* Pods_Medley_iOSUITests.framework */; };
@@ -104,6 +116,18 @@
 		1A8506702278DC7E00C40A87 /* SignupViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelTests.swift; sourceTree = "<group>"; };
 		1A8506732278E0C400C40A87 /* TestApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiService.swift; sourceTree = "<group>"; };
 		1A8506752278E0F000C40A87 /* TestAuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAuthCoordinator.swift; sourceTree = "<group>"; };
+		1ABB5ACA227B3DFB00799E09 /* SignupSuccessViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSuccessViewModelTests.swift; sourceTree = "<group>"; };
+		1ABB5ACE227B3EB800799E09 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		1ABB5AD1227B41B700799E09 /* TodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModelTests.swift; sourceTree = "<group>"; };
+		1ABB5AD3227B430B00799E09 /* TestTodoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTodoCoordinator.swift; sourceTree = "<group>"; };
+		1ABB5AD7227B4A2500799E09 /* MainCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorTests.swift; sourceTree = "<group>"; };
+		1ABB5ADA227B5AAC00799E09 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		1ABB5D26227B5E2F00799E09 /* TestAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAuthService.swift; sourceTree = "<group>"; };
+		1ABB5D28227B635E00799E09 /* AuthCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorTests.swift; sourceTree = "<group>"; };
+		1ABB5D2A227B63C600799E09 /* TestViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViews.swift; sourceTree = "<group>"; };
+		1ABB5D2C227B64D500799E09 /* TestViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModels.swift; sourceTree = "<group>"; };
+		1ABB5D32227B717D00799E09 /* TestMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMainCoordinator.swift; sourceTree = "<group>"; };
+		1ABB5D34227B725A00799E09 /* TodoCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCoordinatorTests.swift; sourceTree = "<group>"; };
 		3CA047751E07A6C8A51D0701 /* Pods-Medley-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Medley-iOSUITests/Pods-Medley-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B58EAE18C449A20D41AADDF /* Pods-Medley-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medley-iOS.release.xcconfig"; path = "Target Support Files/Pods-Medley-iOS/Pods-Medley-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A719B5F7857CACE82AE4C6B8 /* Pods_Medley_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medley_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +227,7 @@
 		1A628A18226A3CCD00DCA73B /* Medley-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				1ABB5AD5227B49EA00799E09 /* Coordinator */,
 				1A85066E2278DC5900C40A87 /* Service */,
 				1A85066F2278DC6400C40A87 /* ViewModel */,
 				1A628A1B226A3CCD00DCA73B /* Info.plist */,
@@ -262,6 +287,7 @@
 			children = (
 				1A6FC731226E5E9B00DF1F25 /* ServiceAssembly.swift */,
 				1A6FC730226E5E8900DF1F25 /* Api */,
+				1ABB5AD9227B5A9800799E09 /* Auth */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -345,7 +371,9 @@
 		1A85066F2278DC6400C40A87 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1A8506702278DC7E00C40A87 /* SignupViewModelTests.swift */,
+				1ABB5ACC227B3E9200799E09 /* Signup */,
+				1ABB5ACD227B3EA100799E09 /* Login */,
+				1ABB5AD0227B41A300799E09 /* Todo */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -353,10 +381,106 @@
 		1A8506722278E0AB00C40A87 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				1A8506732278E0C400C40A87 /* TestApiService.swift */,
-				1A8506752278E0F000C40A87 /* TestAuthCoordinator.swift */,
+				1ABB5D2E227B6F2E00799E09 /* Service */,
+				1ABB5D2F227B6F3600799E09 /* Coordinator */,
+				1ABB5D30227B6F4300799E09 /* ViewModel */,
+				1ABB5D31227B6F4D00799E09 /* View */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		1ABB5AC9227B3DDC00799E09 /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB5ACA227B3DFB00799E09 /* SignupSuccessViewModelTests.swift */,
+			);
+			path = Success;
+			sourceTree = "<group>";
+		};
+		1ABB5ACC227B3E9200799E09 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				1A8506702278DC7E00C40A87 /* SignupViewModelTests.swift */,
+				1ABB5AC9227B3DDC00799E09 /* Success */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		1ABB5ACD227B3EA100799E09 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB5ACE227B3EB800799E09 /* LoginViewModelTests.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1ABB5AD0227B41A300799E09 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB5AD1227B41B700799E09 /* TodoViewModelTests.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		1ABB5AD5227B49EA00799E09 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB5AD6227B4A0B00799E09 /* Main */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		1ABB5AD6227B4A0B00799E09 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB5AD7227B4A2500799E09 /* MainCoordinatorTests.swift */,
+				1ABB5D28227B635E00799E09 /* AuthCoordinatorTests.swift */,
+				1ABB5D34227B725A00799E09 /* TodoCoordinatorTests.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1ABB5AD9227B5A9800799E09 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB5ADA227B5AAC00799E09 /* AuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		1ABB5D2E227B6F2E00799E09 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1A8506732278E0C400C40A87 /* TestApiService.swift */,
+				1ABB5D26227B5E2F00799E09 /* TestAuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1ABB5D2F227B6F3600799E09 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB5D32227B717D00799E09 /* TestMainCoordinator.swift */,
+				1A8506752278E0F000C40A87 /* TestAuthCoordinator.swift */,
+				1ABB5AD3227B430B00799E09 /* TestTodoCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		1ABB5D30227B6F4300799E09 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB5D2C227B64D500799E09 /* TestViewModels.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1ABB5D31227B6F4D00799E09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB5D2A227B63C600799E09 /* TestViews.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EC8D0AC53604DC09640BD026 /* Frameworks */ = {
@@ -665,6 +789,7 @@
 				1A6FC726226E4C0C00DF1F25 /* CoordinatorAssembly.swift in Sources */,
 				1A6FC734226E673B00DF1F25 /* LoginView.swift in Sources */,
 				1A6FC235226E1E2600DF1F25 /* ApiService.swift in Sources */,
+				1ABB5ADB227B5AAC00799E09 /* AuthService.swift in Sources */,
 				1A6C9512226F843100701220 /* SignupSuccessViewModel.swift in Sources */,
 				1A628A39226A435000DCA73B /* MainCoordinator.swift in Sources */,
 				1A6FC732226E5E9B00DF1F25 /* ServiceAssembly.swift in Sources */,
@@ -678,10 +803,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ABB5D2D227B64D500799E09 /* TestViewModels.swift in Sources */,
+				1ABB5ACF227B3EB800799E09 /* LoginViewModelTests.swift in Sources */,
 				1A8506712278DC7E00C40A87 /* SignupViewModelTests.swift in Sources */,
+				1ABB5AD8227B4A2500799E09 /* MainCoordinatorTests.swift in Sources */,
 				1A8506742278E0C400C40A87 /* TestApiService.swift in Sources */,
 				1A8506762278E0F000C40A87 /* TestAuthCoordinator.swift in Sources */,
 				1A43BF7822722FD9005F4D39 /* ApiClientTests.swift in Sources */,
+				1ABB5AD2227B41B700799E09 /* TodoViewModelTests.swift in Sources */,
+				1ABB5AD4227B430B00799E09 /* TestTodoCoordinator.swift in Sources */,
+				1ABB5D35227B725A00799E09 /* TodoCoordinatorTests.swift in Sources */,
+				1ABB5D2B227B63C600799E09 /* TestViews.swift in Sources */,
+				1ABB5D29227B635E00799E09 /* AuthCoordinatorTests.swift in Sources */,
+				1ABB5ACB227B3DFB00799E09 /* SignupSuccessViewModelTests.swift in Sources */,
+				1ABB5D27227B5E2F00799E09 /* TestAuthService.swift in Sources */,
+				1ABB5D33227B717D00799E09 /* TestMainCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

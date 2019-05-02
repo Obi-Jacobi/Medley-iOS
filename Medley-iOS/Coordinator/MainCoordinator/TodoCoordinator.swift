@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Swinject
 
 protocol TodoCoordinatable: Coordinator {
     var parentCoordinator: MainCoordinatable? { get set }
@@ -15,21 +14,23 @@ protocol TodoCoordinatable: Coordinator {
 
 class TodoCoordinator: TodoCoordinatable {
 
-    var resolver: Resolver
+    typealias TodoViewFactory = () -> TodoView
+
     var navigationController: UINavigationController
+    var todoView: TodoViewFactory
     weak var parentCoordinator: MainCoordinatable?
 
-    init(resolver: Resolver,
-         navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,
+         todoView: @escaping TodoViewFactory) {
 
-        self.resolver = resolver
         self.navigationController = navigationController
+        self.todoView = todoView
     }
 
     func start() {
         navigationController.isNavigationBarHidden = false
 
-        let view = resolver.resolve(TodoView.self)!
+        let view = todoView()
 
         navigationController.setViewControllers([view], animated: true)
     }

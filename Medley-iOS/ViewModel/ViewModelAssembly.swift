@@ -25,9 +25,10 @@ class ViewModelAssembly: Assembly {
 
         container.register(LoginVM.self) { r in
             let apiService = r.resolve(ApiService.self)!
+            let authService = r.resolve(AuthService.self)!
             let coordinator = r.resolve(AuthCoordinatable.self, argument: UINavigationController())!
 
-            return LoginViewModel(apiService: apiService, coordinator: coordinator)
+            return LoginViewModel(apiService: apiService, authService: authService, coordinator: coordinator)
         }.inObjectScope(.transient)
 
         container.register(TodoVM.self) { r in

@@ -10,14 +10,18 @@ import RxSwift
 import RxCocoa
 
 protocol TodoVM {
-    var todos: Driver<[Todo]> { get }
-
+    // Inputs
     func getTodos()
     func makeTodo()
+
+    // Outputs
+    var isLoading: Driver<Bool> { get }
+    var todos: Driver<[Todo]> { get }
 }
 
 class TodoViewModel: TodoVM {
 
+    let isLoading: Driver<Bool>
     let todos: Driver<[Todo]>
     private let _todos: BehaviorRelay<[Todo]> = BehaviorRelay(value: [])
 
@@ -30,10 +34,14 @@ class TodoViewModel: TodoVM {
         self.apiService = apiService
         self.coordinator = coordinator
 
+        self.isLoading = loading.asDriver(onErrorJustReturn: false)
         self.todos = _todos.asDriver()
     }
 
+    private let loading = BehaviorRelay(value: false)
+
     func getTodos() {
+        loading.accept(true)
         try? apiService.getAllTodos { result in
             switch result {
             case .success(let response):
@@ -41,12 +49,14 @@ class TodoViewModel: TodoVM {
             case .failure(let error):
                 print("Error performing login request \(error)")
             }
+            self.loading.accept(false)
         }
     }
 
     func makeTodo() {
         let todoRequest = TodoRequest(title: "new todo")
 
+        loading.accept(true)
         try? apiService.makeTodo(request: todoRequest) { result in
             switch result {
             case .success:
@@ -54,6 +64,7 @@ class TodoViewModel: TodoVM {
             case .failure(let error):
                 print("Error performing login request \(error)")
             }
+            self.loading.accept(false)
         }
     }
 }
